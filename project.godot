@@ -14,6 +14,10 @@ config/name="car_game"
 run/main_scene="uid://be1mi7mimuwfx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+Global="*res://global.gd"
+
 [input]
 
 accelerate={

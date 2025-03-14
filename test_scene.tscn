@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=15 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Texture2D" uid="uid://0wof2ikeolop" path="res://assets/texture_01.png" id="1_tbqoc"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://car.tscn" id="3_jaglt"]
+[ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://beer.tscn" id="3_sasra"]
+[ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://tree.tscn" id="4_coq8p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -88,5 +90,26 @@ mesh = SubResource("BoxMesh_jugg0")
 shape = SubResource("ConcavePolygonShape3D_md76x")
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
+
+[node name="beer" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.242, 1.36571, 13.6086)
+
+[node name="beer2" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34852, 1.37589, -1.8358)
+
+[node name="beer3" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.8494, 1.27722, 2.32115)
+
+[node name="beer4" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185976, 1.67583, -10.0762)
+
+[node name="beer5" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0928626, 1.34385, 11.5604)
+
+[node name="beer6" parent="." instance=ExtResource("3_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10479, 1.11802, -2.22981)
+
+[node name="tree" parent="." instance=ExtResource("4_coq8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.07883, 1.18757, 13.7328)
 
 [editable path="Car"]

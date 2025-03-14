@@ -22,7 +22,7 @@ radius = 1.0
 height = 2.0
 
 [node name="Car" type="RigidBody3D"]
-collision_layer = 2
+collision_layer = 6
 physics_material_override = SubResource("PhysicsMaterial_dtpcx")
 gravity_scale = 3.0
 angular_damp = 10.0
