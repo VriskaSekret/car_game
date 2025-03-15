@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=24 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -8,10 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
 [ext_resource type="PackedScene" uid="uid://b3tu8ehi8lknb" path="res://scenes/baby.tscn" id="6_6qxox"]
 [ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="6_s36qc"]
-[ext_resource type="PackedScene" uid="uid://e47frgo61rb1" path="res://scenes/cone.tscn" id="7_gthg3"]
+[ext_resource type="PackedScene" path="res://scenes/cone.tscn" id="7_gthg3"]
 [ext_resource type="Script" uid="uid://b1psxi3fghrga" path="res://score.gd" id="7_wtsjf"]
 [ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
 [ext_resource type="Script" uid="uid://cm7fpg0a1fkp0" path="res://fps.gd" id="9_h3xc6"]
+[ext_resource type="Script" uid="uid://b8vb2gl3yenmf" path="res://hit_baby.gd" id="13_ntc4i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,6 +51,9 @@ bg_color = Color(0.360685, 0.699328, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s36qc"]
 bg_color = Color(0.991127, 0.370156, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0xbq"]
+bg_color = Color(0.532287, 0.659567, 3.85046e-07, 1)
 
 [node name="TestScene" type="Node3D"]
 
@@ -173,6 +177,18 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_s36qc")
 script = ExtResource("9_h3xc6")
+
+[node name="hitBaby" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_u0xbq")
+script = ExtResource("13_ntc4i")
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
