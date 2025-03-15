@@ -5,7 +5,7 @@ extends Node3D
 @export var min_distance: float = 10.0  # Min spawn distance from player
 @export var max_distance: float = 50.0  # Max spawn distance from player
 @export var spawn_interval: float = 1.0  # Distance the player must travel before spawning
-@export var track_width: float = 20.0  # Adjust based on track width
+@export var track_width: float = 30.0  # Adjust based on track width
 
 var last_spawn_position: Vector3  # Track last spawn position
 
