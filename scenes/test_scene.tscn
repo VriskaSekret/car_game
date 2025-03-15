@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=29 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bjc67dtno0wwe" path="res://scenes/powerpole.tscn" id="8_8gixj"]
 [ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
 [ext_resource type="Script" uid="uid://cm7fpg0a1fkp0" path="res://fps.gd" id="9_h3xc6"]
+[ext_resource type="Texture2D" uid="uid://2oghtoxq2yrd" path="res://Jeremy/wall.png" id="10_hf2sn"]
 [ext_resource type="Script" uid="uid://b8vb2gl3yenmf" path="res://hit_baby.gd" id="13_ntc4i"]
 [ext_resource type="PackedScene" uid="uid://nwjttru5h2j2" path="res://assets/building_neon_blue (1).glb" id="14_pln1h"]
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
@@ -21,12 +22,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_pcewp"]
+[sub_resource type="Sky" id="Sky_hf2sn"]
 sky_material = SubResource("ProceduralSkyMaterial_74a4f")
 
 [sub_resource type="Environment" id="Environment_pk4ow"]
 background_mode = 1
-sky = SubResource("Sky_pcewp")
+sky = SubResource("Sky_hf2sn")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -42,6 +43,14 @@ point_count = 10
 albedo_texture = ExtResource("6_s36qc")
 uv1_scale = Vector3(0.001, 0.001, 0.001)
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq5q4"]
+albedo_texture = ExtResource("10_hf2sn")
+emission_enabled = true
+emission = Color(1, 0, 1, 1)
+emission_energy_multiplier = 10.0
+emission_operator = 1
+emission_texture = ExtResource("10_hf2sn")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qnke"]
 bg_color = Color(1, 0.186964, 0.751391, 1)
@@ -62,7 +71,7 @@ bg_color = Color(0.532287, 0.659567, 3.85046e-07, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.287294, 0.829516, -0.478921, 0, 0.5, 0.866025, 0.957843, -0.248804, 0.143647, 0, 274.249, 0)
-light_energy = 0.01
+light_energy = 0.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pk4ow")
@@ -109,6 +118,7 @@ transform = Transform3D(0.820161, 0.0342738, -0.571086, -0.0417522, 0.999117, 3.
 progress = 2435.6
 
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Path3D"]
+material_override = SubResource("StandardMaterial3D_qq5q4")
 use_collision = true
 polygon = PackedVector2Array(3, 0, 3, 2, 4, 2, 4, 0)
 mode = 2
@@ -124,6 +134,7 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="CSGPolygon3D3" type="CSGPolygon3D" parent="Path3D"]
+material_override = SubResource("StandardMaterial3D_qq5q4")
 use_collision = true
 polygon = PackedVector2Array(27, 0, 27, 2, 26, 2, 26, 0)
 mode = 2

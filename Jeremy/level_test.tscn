@@ -1,22 +1,101 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbmvjbc5jlk68"]
+[gd_scene load_steps=16 format=3 uid="uid://dbmvjbc5jlk68"]
 
-[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://car.tscn" id="1_jtv41"]
+[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="1_jtv41"]
+[ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="7_dveuf"]
+[ext_resource type="Texture2D" uid="uid://bm0bqyc05mry3" path="res://Jeremy/new_wall.png" id="8_l0ch2"]
 
-[sub_resource type="Curve3D" id="Curve3D_aogxw"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3onj"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_pcewp"]
+sky_material = SubResource("ProceduralSkyMaterial_h3onj")
+
+[sub_resource type="Environment" id="Environment_nccao"]
+background_mode = 1
+sky = SubResource("Sky_pcewp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_k7iah"]
 closed = true
 _data = {
-"points": PackedVector3Array(-186.046, 0, 264.332, 186.046, 0, -264.332, -710.45, 49.1003, -173.231, 53.9158, 0, 179.401, -53.9158, 0, -179.401, -279.057, 0, -376.795, -190.511, 0, -3.43042, 190.511, 0, 3.43042, -198.387, 0, -581.182, 0, 0, 0, 0, 0, 0, 133.462, 0, -521.042, -120.532, 0, -221.205, 120.532, 0, 221.205, 598.347, -35.2968, -361.924, 60.6878, 0, -237.243, -60.6878, 0, 237.243, 550.026, 0, 3.37029, 0, 0, 0, 0, 0, 0, 753.589, -54.6698, 233.896, 163.707, 0, -82.3083, -163.707, 0, 82.3083, 695.621, -81.1856, 506.213, 162.359, 0, -59.3906, -162.359, 0, 59.3906, 191.431, 0, 309.39, 168.094, 0, -8.57813, -168.094, 0, 8.57813, -248.051, 27.126, 521.042, 311.237, 0, -22.0587, -311.237, 0, 22.0587, -707.754, 0, 370.054),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(1, -1, 99, -1, 1, -99, 23.0012, 0, -288.103, -2, 0, -185, 2, 0, 185, 412.123, 0, -257.185, 117, 0, -45, -117, 0, 45, 517.98, 0, 84.9684, -75, 0, -166, 75, 0, 166, 346.831, 0, 211.946, 353, 0, -55, -353, 0, 55, -22.6398, 0, 445.077, 316, 0, -47, -316, 0, 47, -252.352, 0, 280.555, -81, 0, 69, 81, 0, -69, -276.775, 0, 21.6053, -103, 0, -95, 103, 0, 95, -113.976, 0, -160.779, -131, 0, 51.6, 131, 0, -51.6, 6.34862, 4, -35.1946, -120.5, 0, 33.6, 120.5, 0, -33.6, 216.349, 0, -90.1946),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 11
+point_count = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6ocf"]
+albedo_texture = ExtResource("7_dveuf")
+uv1_scale = Vector3(0.001, 0.001, 0.001)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q55gs"]
+albedo_texture = ExtResource("8_l0ch2")
+uv1_triplanar = true
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnh8i"]
+albedo_texture = ExtResource("8_l0ch2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf243"]
+bg_color = Color(1, 0.186964, 0.751391, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jvjy"]
+bg_color = Color(0, 0.638133, 0.945713, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_albrp"]
+bg_color = Color(0.360685, 0.699328, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vsdj"]
+bg_color = Color(0.991127, 0.370156, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57244"]
+bg_color = Color(0.532287, 0.659567, 3.85046e-07, 1)
 
 [node name="level_test" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.287294, 0.829516, -0.478921, 0, 0.5, 0.866025, 0.957843, -0.248804, 0.143647, 0, 274.249, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nccao")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6)
+
+[node name="Car" parent="." instance=ExtResource("1_jtv41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
+script = null
+
 [node name="Path3D" type="Path3D" parent="."]
-curve = SubResource("Curve3D_aogxw")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01983, -3.05176e-05, 0.863548)
+curve = SubResource("Curve3D_k7iah")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
-polygon = PackedVector2Array(0, 0, -0.00549269, 0.152421, 1.00241, 0.152421, 1, 0)
+material_override = SubResource("StandardMaterial3D_n6ocf")
+use_collision = true
+polygon = PackedVector2Array(1, 0, 1, 0, 30, 0.2, 30, 0.2)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = true
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = true
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.820161, 0.0342738, -0.571086, -0.0417522, 0.999117, 3.0206e-10, 0.570588, 0.0238444, 0.820877, -381.368, 0, 136.482)
+progress = 2435.6
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Path3D"]
+material_override = SubResource("StandardMaterial3D_q55gs")
+use_collision = true
+polygon = PackedVector2Array(3, 0, 3, 2, 4, 2, 4, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
@@ -29,8 +108,71 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="Car" parent="." instance=ExtResource("1_jtv41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -558.076)
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="Path3D"]
+material_override = SubResource("StandardMaterial3D_bnh8i")
+use_collision = true
+polygon = PackedVector2Array(27, 0, 27, 2, 26, 2, 26, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
 
-[node name="Camera3D" type="Camera3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95948, 2.6109)
+[node name="speedometer" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 30.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_rf243")
+
+[node name="score" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_4jvjy")
+
+[node name="multiplier" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_albrp")
+
+[node name="fps" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1vsdj")
+
+[node name="hitBaby" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_57244")
+
+[editable path="Car"]
+[editable path="Car/CarMesh"]
