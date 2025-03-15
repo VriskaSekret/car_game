@@ -22,6 +22,10 @@ Global="*res://scripts/global.gd"
 
 Player=""
 
+[gui]
+
+theme/custom_font="uid://ca146mafiq6ky"
+
 [input]
 
 accelerate={
