@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc5eqimuylhd0"]
+
+[ext_resource type="Script" uid="uid://f6r7x0xoic04" path="res://scripts/beer.gd" id="1_31xl2"]
+[ext_resource type="PackedScene" uid="uid://b75e4e1y344br" path="res://assets/beerbottle.glb" id="2_he3c0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nrfpg"]
+
+[node name="beer" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_31xl2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.863651, -0.403272, 0, 0.50409, 0.690921, 0, 0, 0)
+shape = SubResource("CylinderShape3D_nrfpg")
+
+[node name="beerbottle" parent="CollisionShape3D" instance=ExtResource("2_he3c0")]
+transform = Transform3D(2.125, 0, 0, 0, 1.7, 0, 0, 0, 2.125, 0, -0.577643, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

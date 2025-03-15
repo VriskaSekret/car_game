@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=14 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Texture2D" uid="uid://0wof2ikeolop" path="res://assets/texture_01.png" id="1_tbqoc"]
-[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://car.tscn" id="3_jaglt"]
+[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
+[ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="4_coq8p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -88,5 +89,8 @@ mesh = SubResource("BoxMesh_jugg0")
 shape = SubResource("ConcavePolygonShape3D_md76x")
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
+
+[node name="tree" parent="." instance=ExtResource("4_coq8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70262, 1, -5.7674)
 
 [editable path="Car"]

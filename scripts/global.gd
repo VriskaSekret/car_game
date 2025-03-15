@@ -1,4 +1,4 @@
 extends Node
 
-@onready var score = 0
+@onready var speed_score_multiplier = 1.0
 @onready var is_dead = false
