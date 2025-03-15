@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bryu4d17s37rw"]
+[gd_scene load_steps=5 format=3 uid="uid://b3tu8ehi8lknb"]
 
 [ext_resource type="PackedScene" uid="uid://bknckakkd84o4" path="res://assets/stupid_infant.glb" id="1_k8j53"]
-[ext_resource type="Script" uid="uid://dh818cdeyh161" path="res://scenes/baby.gd" id="1_wpfv3"]
+[ext_resource type="Script" path="res://scenes/baby.gd" id="1_wpfv3"]
 [ext_resource type="PackedScene" uid="uid://cl7lkofme0ypo" path="res://assets/smarter_infant.glb" id="3_ruhsn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wpfv3"]
 size = Vector3(2.54694, 3.08063, 5.91553)
 
 [node name="baby" type="Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -12, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_wpfv3")

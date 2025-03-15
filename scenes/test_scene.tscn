@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
-[ext_resource type="PackedScene" path="res://scenes/baby.tscn" id="6_6qxox"]
+[ext_resource type="PackedScene" uid="uid://b3tu8ehi8lknb" path="res://scenes/baby.tscn" id="6_6qxox"]
 [ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="6_s36qc"]
 [ext_resource type="Script" path="res://score.gd" id="7_wtsjf"]
 [ext_resource type="Script" path="res://multiplier.gd" id="8_rnaij"]
@@ -82,7 +82,7 @@ track_width = 15.0
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
 material_override = SubResource("StandardMaterial3D_6qxox")
 use_collision = true
-polygon = PackedVector2Array(0, 0, 0, 0.2, 30, 0.2, 30, 0)
+polygon = PackedVector2Array(1, 0, 1, 0, 30, 0.2, 30, 0.2)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
@@ -101,7 +101,7 @@ progress = 2435.6
 
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Path3D"]
 use_collision = true
-polygon = PackedVector2Array(0, 0, 0, 5, 3, 5, 3, 0)
+polygon = PackedVector2Array(3, 0, 3, 2, 4, 2, 4, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
@@ -116,7 +116,7 @@ path_joined = false
 
 [node name="CSGPolygon3D3" type="CSGPolygon3D" parent="Path3D"]
 use_collision = true
-polygon = PackedVector2Array(21, 0, 21, 5, 20, 5, 20, 0)
+polygon = PackedVector2Array(27, 0, 27, 2, 26, 2, 26, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
