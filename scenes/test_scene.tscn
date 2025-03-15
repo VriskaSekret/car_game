@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=8 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
+[ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,7 +42,7 @@ offset = Vector3(2.08165e-12, 3, 4)
 target = NodePath("../Car/CarMesh")
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.70521, -230.383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 1.70521, -230.383)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65138, 0, 16.1946)
@@ -63,8 +64,11 @@ path_u_distance = 1.0
 path_joined = true
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.820161, 0.0342738, -0.571086, -0.0417523, 0.999117, 3.0206e-10, 0.570588, 0.0238444, 0.820877, -381.368, 0, 136.482)
+transform = Transform3D(0.820161, 0.0342738, -0.571086, -0.0417522, 0.999117, 3.0206e-10, 0.570588, 0.0238444, 0.820877, -381.368, 0, 136.482)
 progress = 2435.6
+
+[node name="tree" parent="." instance=ExtResource("3_nd71p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, -246)
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
