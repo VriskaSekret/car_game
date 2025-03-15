@@ -11,12 +11,15 @@ config_version=5
 [application]
 
 config/name="car_game"
-run/main_scene="uid://be1mi7mimuwfx"
+run/main_scene="uid://bt166kdu5bl5k"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
 Global="*res://scripts/global.gd"
+ButtonSFX="*res://scenes/SoundGlobals/button_sfx.tscn"
+ButtonSelectSFX="*res://scenes/SoundGlobals/button_select_sfx.tscn"
+BGM="*res://scenes/SoundGlobals/bgm.tscn"
 
 [global_group]
 

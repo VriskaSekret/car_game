@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt166kdu5bl5k"]
+[gd_scene load_steps=5 format=3 uid="uid://bt166kdu5bl5k"]
 
 [ext_resource type="Script" uid="uid://creus2huhb3a2" path="res://main_menu.gd" id="1_qkhwq"]
 [ext_resource type="Texture2D" uid="uid://cgs1jhap6ryk5" path="res://assets/mainMenuBG.jpg" id="2_3d1i7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d1i7"]
+bg_color = Color(0.391558, 0.678113, 0.448046, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48ign"]
+bg_color = Color(0.392157, 0.678431, 0.447059, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -40,10 +46,12 @@ theme_override_constants/separation = 15
 [node name="startButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxFlat_3d1i7")
 text = "Choose Car"
 
 [node name="exitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_48ign")
 text = "Exit"
 
 [node name="title" type="Label" parent="VBoxContainer"]
@@ -53,4 +61,9 @@ theme_override_font_sizes/font_size = 64
 text = "all gas no brakes"
 horizontal_alignment = 1
 
+[connection signal="focus_entered" from="VBoxContainer/startButton" to="." method="_on_start_button_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/startButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/exitButton" to="." method="_on_exit_button_focus_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/exitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
