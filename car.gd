@@ -16,6 +16,10 @@ var turn_input = 0
 @onready var right_wheel = $CarMesh/suv2/wheel_frontRight
 @onready var left_wheel = $CarMesh/suv2/wheel_frontLeft
 
+
+
+
+
 #func _ready():
 #	ground_ray.add_exception(self)
 	

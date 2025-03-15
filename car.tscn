@@ -40,3 +40,5 @@ top_level = true
 
 [node name="RayCast3D" type="RayCast3D" parent="CarMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
+
+[editable path="CarMesh"]

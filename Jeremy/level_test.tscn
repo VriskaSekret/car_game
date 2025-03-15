@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbmvjbc5jlk68"]
+
+[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://car.tscn" id="1_jtv41"]
+
+[sub_resource type="Curve3D" id="Curve3D_aogxw"]
+closed = true
+_data = {
+"points": PackedVector3Array(-186.046, 0, 264.332, 186.046, 0, -264.332, -710.45, 49.1003, -173.231, 53.9158, 0, 179.401, -53.9158, 0, -179.401, -279.057, 0, -376.795, -190.511, 0, -3.43042, 190.511, 0, 3.43042, -198.387, 0, -581.182, 0, 0, 0, 0, 0, 0, 133.462, 0, -521.042, -120.532, 0, -221.205, 120.532, 0, 221.205, 598.347, -35.2968, -361.924, 60.6878, 0, -237.243, -60.6878, 0, 237.243, 550.026, 0, 3.37029, 0, 0, 0, 0, 0, 0, 753.589, -54.6698, 233.896, 163.707, 0, -82.3083, -163.707, 0, 82.3083, 695.621, -81.1856, 506.213, 162.359, 0, -59.3906, -162.359, 0, 59.3906, 191.431, 0, 309.39, 168.094, 0, -8.57813, -168.094, 0, 8.57813, -248.051, 27.126, 521.042, 311.237, 0, -22.0587, -311.237, 0, 22.0587, -707.754, 0, 370.054),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
+[node name="level_test" type="Node3D"]
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_aogxw")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(0, 0, -0.00549269, 0.152421, 1.00241, 0.152421, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="Car" parent="." instance=ExtResource("1_jtv41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -558.076)
+
+[node name="Camera3D" type="Camera3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95948, 2.6109)
