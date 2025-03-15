@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=10 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
-[ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
+[ext_resource type="Script" path="res://speedometer.gd" id="2_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
+[ext_resource type="PackedScene" uid="uid://bryu4d17s37rw" path="res://scenes/baby.tscn" id="5_qjeyg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -77,6 +78,9 @@ offset_top = 13.0
 offset_right = 40.0
 offset_bottom = 36.0
 script = ExtResource("2_j8ivh")
+
+[node name="baby" parent="." instance=ExtResource("5_qjeyg")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 46.0684, 0.334127, -269.633)
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
