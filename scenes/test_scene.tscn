@@ -54,7 +54,6 @@ powerup_scenes = [ExtResource("4_7ddre"), ExtResource("3_nd71p")]
 player = NodePath("../Car")
 min_distance = 20.0
 max_distance = 80.0
-spawn_interval = 20.0
 track_width = 15.0
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]

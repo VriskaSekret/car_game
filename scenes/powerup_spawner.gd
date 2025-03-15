@@ -35,12 +35,14 @@ func spawn_powerup():
 	var track_rotation = track_curve.sample_baked_with_rotation(spawn_offset)
 	var right_vector = track_rotation.basis.x  # Side direction of track
 	var lateral_shift = randf_range(-track_width / 2, track_width / 2) + 12.0  # Shift right
-	var vertical_offset = 1.0  # Raise power-ups above track
+	var vertical_offset = 1.5  # Raise power-ups above track
 
 	# Select a random power-up from the exported array
 	if powerup_scenes.size() > 0:
 		var random_powerup_scene = powerup_scenes[randi() % powerup_scenes.size()]
 		var powerup = random_powerup_scene.instantiate()
+		if powerup.name == "tree":
+			vertical_offset = 0.0
 
 		# Add power-up to the scene
 		get_parent().add_child(powerup)
