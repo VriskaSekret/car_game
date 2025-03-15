@@ -1,16 +1,16 @@
 [gd_scene load_steps=21 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
-[ext_resource type="Script" path="res://speedometer.gd" id="2_j8ivh"]
+[ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
 [ext_resource type="Script" uid="uid://uu65it10jh0e" path="res://scenes/powerup_spawner.gd" id="3_7ddre"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
-[ext_resource type="PackedScene" path="res://scenes/baby.tscn" id="6_6qxox"]
+[ext_resource type="PackedScene" uid="uid://bryu4d17s37rw" path="res://scenes/baby.tscn" id="6_6qxox"]
 [ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="6_s36qc"]
-[ext_resource type="Script" path="res://score.gd" id="7_wtsjf"]
-[ext_resource type="Script" path="res://multiplier.gd" id="8_rnaij"]
-[ext_resource type="Script" path="res://fps.gd" id="9_h3xc6"]
+[ext_resource type="Script" uid="uid://b1psxi3fghrga" path="res://score.gd" id="7_wtsjf"]
+[ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
+[ext_resource type="Script" uid="uid://cm7fpg0a1fkp0" path="res://fps.gd" id="9_h3xc6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -54,7 +54,6 @@ bg_color = Color(0.991127, 0.370156, 0, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.287294, 0.829516, -0.478921, 0, 0.5, 0.866025, 0.957843, -0.248804, 0.143647, 0, 274.249, 0)
-shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pk4ow")
