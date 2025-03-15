@@ -41,7 +41,7 @@ offset = Vector3(2.08165e-12, 3, 4)
 target = NodePath("../Car/CarMesh")
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70521, -230.383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.70521, -230.383)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65138, 0, 16.1946)
@@ -63,7 +63,7 @@ path_u_distance = 1.0
 path_joined = true
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.790445, 0.0269107, -0.611923, -0.0340249, 0.99941, 2.87557e-09, 0.611569, 0.0208208, 0.790903, -366.633, 0, 116.448)
+transform = Transform3D(0.790445, 0.0269107, -0.611923, -0.0340248, 0.99941, 1.94425e-09, 0.611569, 0.0208208, 0.790903, -366.633, 0, 116.448)
 progress = 2435.6
 
 [editable path="Car"]
