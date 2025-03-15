@@ -34,10 +34,10 @@ func _physics_process(delta):
 [sub_resource type="Curve3D" id="Curve3D_uhqqe"]
 closed = true
 _data = {
-"points": PackedVector3Array(25.0205, 0, 21.7763, -25.0205, 0, -21.7763, 96.664, -11.5402, 7.10148, -9.38312, 0, 26.7697, 9.38312, 0, -26.7697, -7.88136, -1.13407, -27.717, 15.7989, 0, 5.99489, -15.7989, 0, -5.99489, 35.5652, 0, -72.4219, 12.878, 0, -9.97947, -12.878, 0, 9.97947, -67.5224, 18.5302, -93.1304, -0.193321, 0, -22.7995, 0.193321, 0, 22.7995, -91.6307, 0, -21.0404, -19.3915, 0, -16.5213, 19.3915, 0, 16.5213, -69.4804, -8.20654, 31.5902, 0.555639, 0, -30.5591, -0.555639, 0, 30.5591, -8.79904, 8.16074, 66.7543, -10.7517, 0, -27.156, 10.7517, 0, 27.156, -37.2267, 0, 111.536, 0, 0, 0, 0, 0, 0, 4.50465, -19.5019, 131.339, 0, 0, 0, 0, 0, 0, 75.7078, -4.72199, 113.439, -4.08147, 0, 23.9638, 4.08147, 0, -23.9638, 119.908, 0, 59.4919),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(-58.55, 0, 17.6145, 58.55, 0, -17.6145, 23.0012, 0, -288.103, -117.925, 0, -98.6394, 117.925, 0, 98.6394, 412.123, 0, -257.185, 37.5403, 0, -108.029, -37.5403, 0, 108.029, 517.98, 0, 84.9684, 79.4135, 0, -136.949, -79.4135, 0, 136.949, 346.831, 0, 211.946, 254.877, 0, -52.6131, -254.877, 0, 52.6131, -22.6398, 0, 445.077, 42.1294, 0, 74.3343, -42.1294, 0, -74.3343, -252.352, 0, 280.555, -21.7957, 0, 90.5539, 21.7957, 0, -90.5539, -276.775, 0, 21.6053, -71.0933, 0, 29.6349, 71.0933, 0, -29.6349, -113.976, 0, -160.779),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 11
+point_count = 8
 
 [node name="TestScene" type="Node3D"]
 
@@ -55,6 +55,7 @@ offset = Vector3(2.08165e-12, 3, 4)
 target = NodePath("../Car/CarMesh")
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70521, -230.383)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65138, 0, 16.1946)
@@ -62,11 +63,11 @@ curve = SubResource("Curve3D_uhqqe")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
 use_collision = true
-polygon = PackedVector2Array(0, 0, 0, 0.2, 5, 0.2, 5, 0)
+polygon = PackedVector2Array(0, 0, 0, 0.2, 20, 0.2, 20, 0)
 mode = 2
 path_node = NodePath("..")
 path_interval_type = 0
-path_interval = 0.1
+path_interval = 1.0
 path_simplify_angle = 0.0
 path_rotation = 2
 path_rotation_accurate = false
@@ -75,35 +76,9 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = true
 
-[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Path3D"]
-use_collision = true
-polygon = PackedVector2Array(0, 0, 0, 1, 0.2, 1, 0.2, 0)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_rotation_accurate = false
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
-
-[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="Path3D"]
-use_collision = true
-polygon = PackedVector2Array(0.8, 0, 0.8, 1, 1, 1, 1, 0)
-mode = 2
-path_node = NodePath("..")
-path_interval_type = 0
-path_interval = 1.0
-path_simplify_angle = 0.0
-path_rotation = 2
-path_rotation_accurate = false
-path_local = false
-path_continuous_u = true
-path_u_distance = 1.0
-path_joined = false
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.818415, 0, -0.57462, 0, 1, 0, 0.57462, 0, 0.818415, -44.2454, 0, -223.992)
+progress = 2435.6
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
