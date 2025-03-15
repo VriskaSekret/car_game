@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt166kdu5bl5k"]
+
+[ext_resource type="Script" uid="uid://creus2huhb3a2" path="res://main_menu.gd" id="1_qkhwq"]
+[ext_resource type="Texture2D" uid="uid://cgs1jhap6ryk5" path="res://assets/mainMenuBG.jpg" id="2_3d1i7"]
+[ext_resource type="Texture2D" uid="uid://dsxs7jat4uem6" path="res://assets/titleBG.png" id="3_48ign"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qkhwq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3d1i7")
+flip_h = true
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -40.0
+offset_right = 291.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="startButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Choose Car"
+
+[node name="exitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 564.0
+offset_top = 772.0
+offset_right = 1360.0
+offset_bottom = 984.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_48ign")
+
+[node name="title" type="RichTextLabel" parent="."]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.927811, 0.1545, 0.617626, 1)
+theme_override_font_sizes/normal_font_size = 96
+text = "all gas no brakes"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
