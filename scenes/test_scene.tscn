@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://be1mi7mimuwfx"]
 
-[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://car.tscn" id="3_jaglt"]
+[ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -14,22 +15,6 @@ background_mode = 2
 sky = SubResource("Sky_pcewp")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="GDScript" id="GDScript_ia1lp"]
-script/source = "extends Camera3D
-
-@export var lerp_speed = 3.0
-@export var offset = Vector3.ZERO
-@export var target : Node
-
-
-func _physics_process(delta):
-	if !target:
-		return
-	var target_pos = target.global_transform.translated_local(offset)
-	global_transform = global_transform.interpolate_with(target_pos, lerp_speed * delta)
-	look_at(target.global_position, Vector3.UP)
-"
 
 [sub_resource type="Curve3D" id="Curve3D_uhqqe"]
 closed = true
@@ -50,7 +35,8 @@ environment = SubResource("Environment_pk4ow")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6)
-script = SubResource("GDScript_ia1lp")
+script = ExtResource("1_j8ivh")
+lerp_speed = 10.0
 offset = Vector3(2.08165e-12, 3, 4)
 target = NodePath("../Car/CarMesh")
 
@@ -77,7 +63,7 @@ path_u_distance = 1.0
 path_joined = true
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.818415, 0, -0.57462, 0, 1, 0, 0.57462, 0, 0.818415, -44.2454, 0, -223.992)
+transform = Transform3D(0.818416, 0, -0.574619, 0, 1, 0, 0.574619, 0, 0.818416, -44.2447, 0, -223.993)
 progress = 2435.6
 
 [editable path="Car"]
