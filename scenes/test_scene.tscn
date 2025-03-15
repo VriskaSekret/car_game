@@ -55,6 +55,7 @@ bg_color = Color(0.991127, 0.370156, 0, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.287294, 0.829516, -0.478921, 0, 0.5, 0.866025, 0.957843, -0.248804, 0.143647, 0, 274.249, 0)
+light_energy = 0.01
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pk4ow")
@@ -77,6 +78,7 @@ powerup_scenes = [ExtResource("4_7ddre"), ExtResource("3_nd71p"), ExtResource("6
 player = NodePath("../Car")
 min_distance = 20.0
 max_distance = 80.0
+spawn_interval = 10.0
 track_width = 15.0
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]

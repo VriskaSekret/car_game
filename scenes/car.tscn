@@ -41,4 +41,12 @@ top_level = true
 [node name="RayCast3D" type="RayCast3D" parent="CarMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.497956, -1.664)
+spot_range = 25.0
+spot_angle = 60.0
+
+[node name="car_backlight" type="SpotLight3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 0.823424, 0.567427, 0, -0.567427, 0.823424, 0, 1.97082, 2.11248)
+
 [editable path="CarMesh"]

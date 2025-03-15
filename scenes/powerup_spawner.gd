@@ -43,6 +43,10 @@ func spawn_powerup():
 		var powerup = random_powerup_scene.instantiate()
 		if powerup.name == "tree":
 			vertical_offset = 0.0
+		if powerup.name == "baby":
+			vertical_offset = 0.0
+		if powerup.name == "cone":
+			vertical_offset = 0.0
 
 		# Add power-up to the scene
 		get_parent().add_child(powerup)
