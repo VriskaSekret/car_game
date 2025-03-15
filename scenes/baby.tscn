@@ -76,6 +76,11 @@ bones/32/position = Vector3(-1.47521e-05, 25.967, 7.74849e-07)
 [node name="AnimationPlayer" parent="smarter_infant" index="1"]
 autoplay = "Armature|mixamo_com|Layer0"
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 4.90635, 0)
+light_color = Color(1, 0.756863, 0, 1)
+light_energy = 5.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
 [editable path="smarter_infant"]
