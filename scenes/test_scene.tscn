@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=8 format=3 uid="uid://be1mi7mimuwfx"]
 
-[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://car.tscn" id="3_jaglt"]
+[ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -77,8 +78,16 @@ path_u_distance = 1.0
 path_joined = true
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.818415, 0, -0.57462, 0, 1, 0, 0.57462, 0, 0.818415, -44.2454, 0, -223.992)
+transform = Transform3D(0.818416, 0, -0.574619, 0, 1, 0, 0.574619, 0, 0.818416, -44.2447, 0, -223.993)
 progress = 2435.6
+
+[node name="speedometer" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 41.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 24
+script = ExtResource("2_j8ivh")
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
