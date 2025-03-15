@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=9 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
+[ext_resource type="Script" uid="uid://bm7mjr06eshp0" path="res://scenes/driving_path.gd" id="3_nd71p"]
+[ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,9 +45,12 @@ target = NodePath("../Car/CarMesh")
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70521, -230.383)
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="Path3D" type="Path3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.65138, 0, 16.1946)
 curve = SubResource("Curve3D_uhqqe")
+script = ExtResource("3_nd71p")
+powerup_scene = ExtResource("4_7ddre")
+player = NodePath("../Car")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
 use_collision = true
