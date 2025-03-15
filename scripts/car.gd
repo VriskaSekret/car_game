@@ -34,10 +34,10 @@ func _process(delta):
 	if not ground_ray.is_colliding() or Global.is_dead:
 		return
 	if Input.is_key_pressed(KEY_SPACE):
-		turn_speed = 4.0
+		turn_speed = 6.0
 		drift_direction_multiplier = -1
 	else:
-		turn_speed = 2.0
+		turn_speed = 3.0
 		drift_direction_multiplier = 1
 	if drift_direction_multiplier == -1 and Input.get_axis("steer_right", "steer_left") != 0:
 			acceleration += acceleration * 0.2
