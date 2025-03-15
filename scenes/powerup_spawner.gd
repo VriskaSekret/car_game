@@ -39,7 +39,16 @@ func spawn_powerup():
 
 	# Select a random power-up from the exported array
 	if powerup_scenes.size() > 0:
-		var random_powerup_scene = powerup_scenes[randi() % powerup_scenes.size()]
+		var random_selection = randi_range(1, 100)
+		var random_powerup_scene
+		if 0 < random_selection and random_selection <= 30:
+			random_powerup_scene = powerup_scenes[0]
+		elif 30 < random_selection and random_selection <= 50:
+			random_powerup_scene = powerup_scenes[1]
+		elif 50 < random_selection and random_selection <= 80:
+			random_powerup_scene = powerup_scenes[2]
+		elif 80 < random_selection and random_selection <= 100:
+			random_powerup_scene = powerup_scenes[3]
 		var powerup = random_powerup_scene.instantiate()
 		if powerup.name == "tree":
 			vertical_offset = 0.0
