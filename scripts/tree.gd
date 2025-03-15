@@ -4,7 +4,7 @@ extends RigidBody3D
 #this script does nothing
 
 func _physics_process(delta: float) -> void:
-	if (position.distance_to(player.position) > 20):
+	if (position.distance_to(player.position) > 100):
 		queue_free()
 	var collision = move_and_collide(linear_velocity * delta)
 	if collision:
