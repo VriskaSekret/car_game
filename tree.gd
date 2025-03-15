@@ -1,5 +1,3 @@
-extends Area3D
+extends RigidBody3D
 
-
-func _on_body_entered(body: Node3D) -> void:
-	Global.is_dead = true
+#this script does nothing

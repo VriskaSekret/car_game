@@ -6,9 +6,9 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_gvmkm"]
 
-[node name="tree" type="Area3D"]
-collision_layer = 0
-collision_mask = 4
+[node name="tree" type="RigidBody3D"]
+collision_mask = 5
+mass = 3.0
 script = ExtResource("1_brfkd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

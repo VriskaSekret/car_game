@@ -2,9 +2,9 @@ extends RigidBody3D
 
 var sphere_offset = Vector3.DOWN
 var acceleration = 35.0
-var steering = 19.0
+var steering = 29.0
 var turn_speed = 4.0
-var turn_stop_limit = 0.75
+var turn_stop_limit = 3.0
 var body_tilt = 35
 
 var speed_input = 0
@@ -26,15 +26,15 @@ func _physics_process(delta):
 	
 func _process(delta):
 	acceleration = 35.0 + (Global.score * 5)
-	if not ground_ray.is_colliding() or not Global.is_dead:
+	if not ground_ray.is_colliding() or Global.is_dead:
 		return
 	speed_input = Input.get_axis("brake", "accelerate") * acceleration
 	if speed_input > 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)
 	elif speed_input < 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * -deg_to_rad(steering)
-	right_wheel.rotation.y = turn_input
-	left_wheel.rotation.y = turn_input
+	right_wheel.rotation.y = -turn_input
+	left_wheel.rotation.y = -turn_input
 
 	
 	if linear_velocity.length() > turn_stop_limit:
