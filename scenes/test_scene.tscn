@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=9 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
+[ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 
@@ -69,6 +70,13 @@ progress = 2435.6
 
 [node name="tree" parent="." instance=ExtResource("3_nd71p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, -246)
+
+[node name="speedometer" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 40.0
+offset_bottom = 36.0
+script = ExtResource("2_j8ivh")
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
