@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://20mkd0524g5g"]
+[gd_scene load_steps=4 format=3 uid="uid://20mkd0524g5g"]
 
 [ext_resource type="Texture2D" uid="uid://ckxc2ecjahol1" path="res://assets/carImage.png" id="1_0gg5u"]
 [ext_resource type="Script" uid="uid://0a5tpaqmpltk" path="res://car_select.gd" id="1_gnvab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnvab"]
+bg_color = Color(0.392157, 0.678431, 0.447059, 1)
 
 [node name="CarSelect" type="Control"]
 layout_mode = 3
@@ -41,9 +44,13 @@ texture = ExtResource("1_0gg5u")
 
 [node name="chooseSUV" type="Button" parent="HSplitContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_gnvab")
 text = "SUV"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
 
+[connection signal="focus_entered" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_mouse_entered"]
 [connection signal="pressed" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_pressed"]
