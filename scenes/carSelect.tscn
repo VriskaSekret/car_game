@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://20mkd0524g5g"]
+
+[ext_resource type="Texture2D" uid="uid://ckxc2ecjahol1" path="res://assets/carImage.png" id="1_0gg5u"]
+[ext_resource type="Script" uid="uid://0a5tpaqmpltk" path="res://car_select.gd" id="1_gnvab"]
+
+[node name="CarSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gnvab")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -431.0
+offset_top = -284.0
+offset_right = 431.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="suvImage" type="TextureRect" parent="HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_0gg5u")
+
+[node name="chooseSUV" type="Button" parent="HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+text = "SUV"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_pressed"]
