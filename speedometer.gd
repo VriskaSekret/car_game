@@ -4,4 +4,4 @@ extends Label
 
 
 func _process(delta):
-	speedometer.text = "Speed: %skm/h" % int(round((car.linear_velocity.length()) * 2))
+	speedometer.text = " Speed: %skm/h " % int(round((car.linear_velocity.length()) * 2))

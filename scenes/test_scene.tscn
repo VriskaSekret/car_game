@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=18 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
-[ext_resource type="Script" path="res://speedometer.gd" id="2_j8ivh"]
-[ext_resource type="Script" path="res://scenes/powerup_spawner.gd" id="3_7ddre"]
+[ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
+[ext_resource type="Script" uid="uid://uu65it10jh0e" path="res://scenes/powerup_spawner.gd" id="3_7ddre"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
+[ext_resource type="Script" uid="uid://b1psxi3fghrga" path="res://score.gd" id="7_wtsjf"]
+[ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
+[ext_resource type="Script" uid="uid://cm7fpg0a1fkp0" path="res://fps.gd" id="9_h3xc6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,6 +30,18 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qnke"]
+bg_color = Color(1, 0.186964, 0.751391, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnaij"]
+bg_color = Color(0, 0.638133, 0.945713, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3xc6"]
+bg_color = Color(0.360685, 0.699328, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s36qc"]
+bg_color = Color(0.991127, 0.370156, 0, 1)
 
 [node name="TestScene" type="Node3D"]
 
@@ -77,11 +92,47 @@ transform = Transform3D(0.820161, 0.0342738, -0.571086, -0.0417522, 0.999117, 3.
 progress = 2435.6
 
 [node name="speedometer" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 13.0
-offset_right = 40.0
-offset_bottom = 36.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 30.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3qnke")
 script = ExtResource("2_j8ivh")
+
+[node name="score" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_rnaij")
+script = ExtResource("7_wtsjf")
+
+[node name="multiplier" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3xc6")
+script = ExtResource("8_rnaij")
+
+[node name="fps" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_s36qc")
+script = ExtResource("9_h3xc6")
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
