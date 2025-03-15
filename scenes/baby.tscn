@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3tu8ehi8lknb"]
 
 [ext_resource type="PackedScene" uid="uid://bknckakkd84o4" path="res://assets/stupid_infant.glb" id="1_k8j53"]
-[ext_resource type="Script" path="res://scenes/baby.gd" id="1_wpfv3"]
+[ext_resource type="Script" uid="uid://dh818cdeyh161" path="res://scenes/baby.gd" id="1_wpfv3"]
 [ext_resource type="PackedScene" uid="uid://cl7lkofme0ypo" path="res://assets/smarter_infant.glb" id="3_ruhsn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wpfv3"]
