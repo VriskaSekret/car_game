@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=11 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" path="res://speedometer.gd" id="2_j8ivh"]
-[ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
-[ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
-[ext_resource type="PackedScene" uid="uid://bryu4d17s37rw" path="res://scenes/baby.tscn" id="5_qjeyg"]
-[ext_resource type="Script" uid="uid://uu65it10jh0e" path="res://scenes/powerup_spawner.gd" id="3_7ddre"]
+[ext_resource type="Script" path="res://scenes/powerup_spawner.gd" id="3_7ddre"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
@@ -79,18 +76,12 @@ path_joined = true
 transform = Transform3D(0.820161, 0.0342738, -0.571086, -0.0417522, 0.999117, 3.0206e-10, 0.570588, 0.0238444, 0.820877, -381.368, 0, 136.482)
 progress = 2435.6
 
-[node name="tree" parent="." instance=ExtResource("3_nd71p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, -246)
-
 [node name="speedometer" type="Label" parent="."]
 offset_left = 10.0
 offset_top = 13.0
 offset_right = 40.0
 offset_bottom = 36.0
 script = ExtResource("2_j8ivh")
-
-[node name="baby" parent="." instance=ExtResource("5_qjeyg")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 46.0684, 0.334127, -269.633)
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
