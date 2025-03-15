@@ -35,10 +35,11 @@ func spawn_powerup():
 	var track_rotation = track_curve.sample_baked_with_rotation(spawn_offset)
 	var right_vector = track_rotation.basis.x  # Side direction of track
 	var lateral_shift = randf_range(-track_width / 2, track_width / 2) + 12.0  # Adjusted offset
+	var vertical_offset = 1.5  # Adjust this value as needed
 	
 	# Spawn power-up
 	var powerup = powerup_scene.instantiate()
 	get_parent().add_child(powerup)  # First add it to the scene
 	
 	# Now set its position safely
-	powerup.global_transform.origin = spawn_position + (right_vector * lateral_shift)
+	powerup.global_transform.origin = spawn_position + (right_vector * lateral_shift) + Vector3(0, vertical_offset, 0)
