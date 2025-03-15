@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dbl4bno5e48ka"]
 
-[ext_resource type="Script" uid="uid://by722cu5iruxc" path="res://car.gd" id="1_0cfhi"]
+[ext_resource type="Script" uid="uid://by722cu5iruxc" path="res://scripts/car.gd" id="1_0cfhi"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="1_rqohb"]
 [ext_resource type="PackedScene" uid="uid://b7to78d8cuybh" path="res://assets/GLTF format/suv.glb" id="2_wv6cm"]
 
@@ -21,10 +21,10 @@ material = SubResource("StandardMaterial3D_vviip")
 radius = 1.0
 height = 2.0
 
-[node name="Car" type="RigidBody3D"]
+[node name="Car" type="RigidBody3D" groups=["Player"]]
 collision_layer = 6
 physics_material_override = SubResource("PhysicsMaterial_dtpcx")
-gravity_scale = 3.0
+gravity_scale = 2.0
 angular_damp = 10.0
 script = ExtResource("1_0cfhi")
 
