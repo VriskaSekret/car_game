@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=32 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://b8vb2gl3yenmf" path="res://hit_baby.gd" id="13_ntc4i"]
 [ext_resource type="PackedScene" uid="uid://nwjttru5h2j2" path="res://assets/building_neon_blue (1).glb" id="14_pln1h"]
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
+[ext_resource type="Shader" uid="uid://duwr0mmu47hje" path="res://scenes/drunk_blur_shader.gdshader" id="18_qq5q4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,6 +31,9 @@ background_mode = 1
 sky = SubResource("Sky_hf2sn")
 tonemap_mode = 2
 glow_enabled = true
+glow_bloom = 1.0
+
+[sub_resource type="Compositor" id="Compositor_nlwlv"]
 
 [sub_resource type="Curve3D" id="Curve3D_uhqqe"]
 closed = true
@@ -67,6 +71,12 @@ bg_color = Color(0.991127, 0.370156, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0xbq"]
 bg_color = Color(0.532287, 0.659567, 3.85046e-07, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gah1j"]
+shader = ExtResource("18_qq5q4")
+shader_parameter/blur_center = Vector2(0.5, 0.5)
+shader_parameter/blur_power = 0.001
+shader_parameter/sampling_count = 6
+
 [node name="TestScene" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -75,13 +85,7 @@ light_energy = 0.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pk4ow")
-
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6)
-script = ExtResource("1_j8ivh")
-lerp_speed = 10.0
-offset = Vector3(2.08165e-12, 3, 4)
-target = NodePath("../Car/CarMesh")
+compositor = SubResource("Compositor_nlwlv")
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
@@ -148,61 +152,6 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
-
-[node name="speedometer" type="Label" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 30.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_3qnke")
-script = ExtResource("2_j8ivh")
-
-[node name="score" type="Label" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_rnaij")
-script = ExtResource("7_wtsjf")
-
-[node name="multiplier" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_h3xc6")
-script = ExtResource("8_rnaij")
-
-[node name="fps" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_s36qc")
-script = ExtResource("9_h3xc6")
-
-[node name="hitBaby" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_u0xbq")
-script = ExtResource("13_ntc4i")
 
 [node name="Buildings" type="Node" parent="."]
 
@@ -595,6 +544,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.65, -5, -227.25)
 
 [node name="building_neon_blue (1)66" parent="Buildings" instance=ExtResource("14_pln1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.449, 0, -225.913)
+
+[node name="speedometer" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 30.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_3qnke")
+script = ExtResource("2_j8ivh")
+
+[node name="score" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_rnaij")
+script = ExtResource("7_wtsjf")
+
+[node name="multiplier" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_h3xc6")
+script = ExtResource("8_rnaij")
+
+[node name="fps" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_s36qc")
+script = ExtResource("9_h3xc6")
+
+[node name="hitBaby" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_u0xbq")
+script = ExtResource("13_ntc4i")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 10)
+script = ExtResource("1_j8ivh")
+lerp_speed = 10.0
+offset = Vector3(0, 2, 4)
+target = NodePath("../Car/CarMesh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gah1j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
