@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=37 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
 [ext_resource type="PackedScene" uid="uid://b3tu8ehi8lknb" path="res://scenes/baby.tscn" id="6_6qxox"]
 [ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="6_s36qc"]
-[ext_resource type="PackedScene" uid="uid://e47frgo61rb1" path="res://scenes/cone.tscn" id="7_gthg3"]
+[ext_resource type="PackedScene" path="res://scenes/cone.tscn" id="7_gthg3"]
 [ext_resource type="Script" uid="uid://b1psxi3fghrga" path="res://score.gd" id="7_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://bjc67dtno0wwe" path="res://scenes/powerpole.tscn" id="8_8gixj"]
 [ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
@@ -19,10 +19,9 @@
 [ext_resource type="Script" uid="uid://b8vb2gl3yenmf" path="res://hit_baby.gd" id="13_ntc4i"]
 [ext_resource type="PackedScene" uid="uid://nwjttru5h2j2" path="res://assets/building_neon_blue (1).glb" id="14_pln1h"]
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
-[ext_resource type="Script" path="res://scripts/notifications.gd" id="18_ap2hy"]
-[ext_resource type="Shader" uid="uid://duwr0mmu47hje" path="res://scenes/drunk_blur_shader.gdshader" id="20_ap2hy"]
-[ext_resource type="Script" uid="uid://byg533yi8m7a4" path="res://scenes/blur_effect.gd" id="21_nlwlv"]
 [ext_resource type="Script" uid="uid://dbf8ff8hibrx4" path="res://scripts/notifications.gd" id="18_ap2hy"]
+[ext_resource type="Shader" path="res://scenes/drunk_blur_shader.gdshader" id="20_ap2hy"]
+[ext_resource type="Script" path="res://scenes/blur_effect.gd" id="21_nlwlv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -114,12 +113,6 @@ visible = false
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
 visible = false
-
-[node name="Drift" parent="Car" index="2"]
-bus = &"Master"
-
-[node name="Engine" parent="Car" index="3"]
-bus = &"Master"
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01983, -3.05176e-05, 0.863548)

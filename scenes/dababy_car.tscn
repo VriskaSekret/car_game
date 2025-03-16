@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://desnejrdln5t7"]
+[gd_scene load_steps=11 format=3 uid="uid://desnejrdln5t7"]
 
 [ext_resource type="Script" uid="uid://bew6s74wjy4eb" path="res://scripts/dababy_car.gd" id="1_6rcwd"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="2_1pyw6"]
 [ext_resource type="PackedScene" uid="uid://y22sr6vjjp4l" path="res://assets/dababycar.glb" id="3_hdmw4"]
+[ext_resource type="AudioStream" uid="uid://cu3gkxkiw0upb" path="res://assets/drift.mp3" id="4_hdmw4"]
+[ext_resource type="AudioStream" uid="uid://j267nuawgj14" path="res://assets/better_engine.mp3" id="5_4di1n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dtpcx"]
 bounce = 0.1
@@ -68,3 +70,13 @@ spread = 90.0
 gravity = Vector3(0, 5, 0)
 initial_velocity_min = 0.5
 initial_velocity_max = 2.0
+
+[node name="Drift" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hdmw4")
+volume_db = -4.0
+pitch_scale = 1.5
+
+[node name="Engine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4di1n")
+volume_db = 4.0
+autoplay = true
