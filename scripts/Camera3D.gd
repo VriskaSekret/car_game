@@ -4,6 +4,11 @@ extends Camera3D
 @export var offset = Vector3.ZERO
 @export var target : Node
 
+func _ready() -> void:
+	print(get_tree().get_nodes_in_group("Player"))
+	if !target:
+		target = get_tree().get_first_node_in_group("Player")
+
 
 func _physics_process(delta):
 	if !target:
