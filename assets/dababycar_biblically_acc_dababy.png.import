@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cfsymyc2lceyr"
+path.s3tc="res://.godot/imported/dababycar_biblically_acc_dababy.png-629280ab46c3efa75f2800b13a9f5921.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "6e40f3b9b6ed1b0d96052c202fcf6361"
+}
+
+[deps]
+
+source_file="res://assets/dababycar_biblically_acc_dababy.png"
+dest_files=["res://.godot/imported/dababycar_biblically_acc_dababy.png-629280ab46c3efa75f2800b13a9f5921.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
