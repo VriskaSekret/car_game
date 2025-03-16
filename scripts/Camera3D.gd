@@ -24,7 +24,3 @@ func _physics_process(delta):
 	var target_pos = target.global_transform.translated_local(offset)
 	global_transform = global_transform.interpolate_with(target_pos, lerp_speed * delta)
 	look_at(target.global_position, Vector3.UP)
-
-
-func _on_button_pressed() -> void:
-	pass # Replace with function body.

@@ -49,7 +49,10 @@ func _process(delta):
 		turn_speed = 3.0
 		drift_direction_multiplier = 1
 	if drift_direction_multiplier == -1 and Input.get_axis("steer_right", "steer_left") != 0:
-			acceleration += acceleration * 0.2
+		drift_player.play()
+		acceleration += acceleration * 0.2
+	else:
+		drift_player.stop()
 	speed_input = Input.get_axis("brake", "accelerate") * acceleration
 	if speed_input > 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)

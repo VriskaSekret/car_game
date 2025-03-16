@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt166kdu5bl5k"]
+[gd_scene load_steps=6 format=3 uid="uid://bt166kdu5bl5k"]
 
 [ext_resource type="Script" uid="uid://creus2huhb3a2" path="res://main_menu.gd" id="1_qkhwq"]
 [ext_resource type="Texture2D" uid="uid://cgs1jhap6ryk5" path="res://assets/mainMenuBG.jpg" id="2_3d1i7"]
@@ -8,6 +8,9 @@ bg_color = Color(0.391558, 0.678113, 0.448046, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48ign"]
 bg_color = Color(0.392157, 0.678431, 0.447059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7wge"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -58,7 +61,8 @@ text = "Exit"
 layout_mode = 2
 theme_override_colors/font_color = Color(0.951327, 0.000358285, 0.868994, 1)
 theme_override_font_sizes/font_size = 64
-text = "all gas no brakes"
+theme_override_styles/normal = SubResource("StyleBoxFlat_l7wge")
+text = "Goo Goo Ga-GONE"
 horizontal_alignment = 1
 
 [connection signal="focus_entered" from="VBoxContainer/startButton" to="." method="_on_start_button_focus_entered"]

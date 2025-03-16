@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
 [ext_resource type="Script" uid="uid://cm7fpg0a1fkp0" path="res://fps.gd" id="9_h3xc6"]
 [ext_resource type="Texture2D" uid="uid://2oghtoxq2yrd" path="res://Jeremy/wall.png" id="10_hf2sn"]
-[ext_resource type="Script" path="res://scenes/ui_controller.gd" id="11_qq5q4"]
+[ext_resource type="Script" uid="uid://cv7scqodr6byb" path="res://scenes/ui_controller.gd" id="11_qq5q4"]
 [ext_resource type="Script" uid="uid://b8vb2gl3yenmf" path="res://hit_baby.gd" id="13_ntc4i"]
 [ext_resource type="PackedScene" uid="uid://nwjttru5h2j2" path="res://assets/building_neon_blue (1).glb" id="14_pln1h"]
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
@@ -682,6 +682,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.65, -5, -227.25)
 
 [node name="building_neon_blue (1)66" parent="Buildings" instance=ExtResource("14_pln1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.449, 0, -225.913)
+
+[connection signal="pressed" from="UI_controller/game_over/VBoxContainer/Button" to="UI_controller" method="_on_button_pressed"]
 
 [editable path="DababyCar"]
 [editable path="Car"]

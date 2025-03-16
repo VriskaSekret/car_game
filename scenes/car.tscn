@@ -53,9 +53,14 @@ transform = Transform3D(1, 0, 0, 0, 0.823424, 0.567427, 0, -0.567427, 0.823424, 
 
 [node name="Drift" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3mrxu")
+volume_db = -4.0
+pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="Engine" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cp117")
+volume_db = 4.0
 autoplay = true
+bus = &"SFX"
 
 [editable path="CarMesh"]
