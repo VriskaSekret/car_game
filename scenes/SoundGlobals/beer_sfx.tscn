@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba8cx5pis6poj"]
+
+[ext_resource type="AudioStream" uid="uid://dhrj5md6553le" path="res://assets/gulp.mp3" id="1_adfiu"]
+
+[node name="BeerSFX" type="AudioStreamPlayer"]
+stream = ExtResource("1_adfiu")
+volume_db = 10.0
+pitch_scale = 1.5
+bus = &"SFX"

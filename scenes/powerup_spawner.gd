@@ -7,9 +7,17 @@ extends Node3D
 @export var spawn_interval: float = 1.0  # Distance the player must travel before spawning
 @export var track_width: float = 30.0  # Adjust based on track width
 
+@onready var car: RigidBody3D = $"../Car"
+@onready var dababy_car: RigidBody3D = $"../DababyCar"
+
 var last_spawn_position: Vector3  # Track last spawn position
 
 func _ready():
+	if !player:
+		if Global.car == 0:
+			player = car
+		elif Global.car == 1:
+			player = dababy_car
 	last_spawn_position = player.global_transform.origin
 
 func _process(delta):
