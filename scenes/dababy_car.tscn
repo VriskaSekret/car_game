@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdkcxqr7reuu0"]
+
+[ext_resource type="Script" uid="uid://bew6s74wjy4eb" path="res://scripts/dababy_car.gd" id="1_6rcwd"]
+[ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="2_1pyw6"]
+[ext_resource type="PackedScene" uid="uid://y22sr6vjjp4l" path="res://assets/dababycar.glb" id="3_hdmw4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dtpcx"]
+bounce = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4di1n"]
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vviip"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.643137)
+albedo_texture = ExtResource("2_1pyw6")
+uv1_scale = Vector3(6, 3, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3bs5r"]
+material = SubResource("StandardMaterial3D_vviip")
+radius = 1.0
+height = 2.0
+
+[node name="DababyCar" type="RigidBody3D" groups=["Player"]]
+collision_layer = 6
+physics_material_override = SubResource("PhysicsMaterial_dtpcx")
+gravity_scale = 2.0
+angular_damp = 10.0
+script = ExtResource("1_6rcwd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4di1n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
+mesh = SubResource("SphereMesh_3bs5r")
+
+[node name="CarMesh" type="Node3D" parent="."]
+top_level = true
+
+[node name="dababycar" parent="CarMesh" instance=ExtResource("3_hdmw4")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0.555794, 0.810527, -0.0927525)
+
+[node name="RayCast3D" type="RayCast3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.497956, -1.664)
+spot_range = 25.0
+spot_angle = 60.0
+
+[node name="car_backlight" type="SpotLight3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 0.823424, 0.567427, 0, -0.567427, 0.823424, 0, 1.97082, 2.11248)

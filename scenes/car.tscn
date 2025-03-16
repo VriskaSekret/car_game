@@ -10,14 +10,14 @@ bounce = 0.1
 [sub_resource type="SphereShape3D" id="SphereShape3D_ywja5"]
 radius = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vviip"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50v30"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.643137)
 albedo_texture = ExtResource("1_rqohb")
 uv1_scale = Vector3(6, 3, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_00jmq"]
-material = SubResource("StandardMaterial3D_vviip")
+material = SubResource("StandardMaterial3D_50v30")
 radius = 1.0
 height = 2.0
 

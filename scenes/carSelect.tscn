@@ -55,5 +55,7 @@ text = "SUV"
 [node name="VBoxContainer3" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
 
+[connection signal="focus_entered" from="HSplitContainer/VBoxContainer/chooseDababy" to="." method="_on_choose_dababy_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/VBoxContainer/chooseDababy" to="." method="_on_choose_dababy_mouse_entered"]
 [connection signal="pressed" from="HSplitContainer/VBoxContainer/chooseDababy" to="." method="_on_choose_dababy_pressed"]
 [connection signal="pressed" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_pressed"]
