@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
 [ext_resource type="PackedScene" uid="uid://b3tu8ehi8lknb" path="res://scenes/baby.tscn" id="6_6qxox"]
 [ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="6_s36qc"]
-[ext_resource type="PackedScene" uid="uid://e47frgo61rb1" path="res://scenes/cone.tscn" id="7_gthg3"]
+[ext_resource type="PackedScene" path="res://scenes/cone.tscn" id="7_gthg3"]
 [ext_resource type="Script" uid="uid://b1psxi3fghrga" path="res://score.gd" id="7_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://bjc67dtno0wwe" path="res://scenes/powerpole.tscn" id="8_8gixj"]
 [ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
 [ext_resource type="Shader" uid="uid://duwr0mmu47hje" path="res://scenes/drunk_blur_shader.gdshader" id="20_ap2hy"]
 [ext_resource type="Script" uid="uid://byg533yi8m7a4" path="res://scenes/blur_effect.gd" id="21_nlwlv"]
+[ext_resource type="Script" uid="uid://dbf8ff8hibrx4" path="res://scripts/notifications.gd" id="18_ap2hy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -112,6 +113,12 @@ visible = false
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
 visible = false
+
+[node name="Drift" parent="Car" index="2"]
+bus = &"Master"
+
+[node name="Engine" parent="Car" index="3"]
+bus = &"Master"
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01983, -3.05176e-05, 0.863548)
@@ -297,6 +304,51 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0xbq")
 script = ExtResource("13_ntc4i")
+
+[node name="notifications" type="Control" parent="UI_controller"]
+anchors_preset = 0
+offset_right = 1921.0
+offset_bottom = 1080.0
+script = ExtResource("18_ap2hy")
+
+[node name="addScore" type="Label" parent="UI_controller/notifications"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0930071, 0.330486, 1, 1)
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="addMulti" type="Label" parent="UI_controller/notifications"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.831373, 0, 1)
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="notifTimer" type="Timer" parent="UI_controller/notifications"]
+one_shot = true
 
 [node name="Buildings" type="Node" parent="."]
 
@@ -703,6 +755,7 @@ script = ExtResource("21_nlwlv")
 rect = NodePath("../ColorRect")
 
 [connection signal="pressed" from="UI_controller/game_over/VBoxContainer/Button" to="UI_controller" method="_on_button_pressed"]
+[connection signal="timeout" from="UI_controller/notifications/notifTimer" to="UI_controller/notifications" method="_on_notif_timer_timeout"]
 
 [editable path="DababyCar"]
 [editable path="Car"]
