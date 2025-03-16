@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ckxc2ecjahol1" path="res://assets/carImage.png" id="1_0gg5u"]
 [ext_resource type="Script" uid="uid://0a5tpaqmpltk" path="res://car_select.gd" id="1_gnvab"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnvab"]
-bg_color = Color(0.392157, 0.678431, 0.447059, 1)
+[ext_resource type="Texture2D" uid="uid://b8cp0i52c0sag" path="res://assets/image.png" id="2_vdrxp"]
 
 [node name="CarSelect" type="Control"]
 layout_mode = 3
@@ -22,15 +20,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -431.0
-offset_top = -284.0
-offset_right = 431.0
-offset_bottom = 284.0
+offset_left = -779.5
+offset_top = -299.5
+offset_right = 779.5
+offset_bottom = 299.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
+
+[node name="dababyImage" type="TextureRect" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_vdrxp")
+
+[node name="chooseDababy" type="Button" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dababy"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
@@ -44,13 +50,10 @@ texture = ExtResource("1_0gg5u")
 
 [node name="chooseSUV" type="Button" parent="HSplitContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-theme_override_styles/focus = SubResource("StyleBoxFlat_gnvab")
 text = "SUV"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
 
-[connection signal="focus_entered" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_focus_entered"]
-[connection signal="mouse_entered" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_mouse_entered"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/chooseDababy" to="." method="_on_choose_dababy_pressed"]
 [connection signal="pressed" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_pressed"]

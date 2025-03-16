@@ -43,8 +43,10 @@ func spawn_powerup():
 		var random_powerup_scene
 		if 0 < random_selection and random_selection <= 30:
 			random_powerup_scene = powerup_scenes[0]
-		elif 30 < random_selection and random_selection <= 50:
+		elif 30 < random_selection and random_selection <= 40:
 			random_powerup_scene = powerup_scenes[1]
+		elif 40 < random_selection and random_selection <= 50:
+			random_powerup_scene = powerup_scenes[4]
 		elif 50 < random_selection and random_selection <= 80:
 			random_powerup_scene = powerup_scenes[2]
 		elif 80 < random_selection and random_selection <= 100:
@@ -55,6 +57,8 @@ func spawn_powerup():
 		if powerup.name == "baby":
 			vertical_offset = 0.0
 		if powerup.name == "cone":
+			vertical_offset = 0.0
+		if powerup.name == "powerpole":
 			vertical_offset = 0.0
 
 		# Add power-up to the scene

@@ -1,18 +1,20 @@
-[gd_scene load_steps=27 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=32 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
 [ext_resource type="Script" uid="uid://uu65it10jh0e" path="res://scenes/powerup_spawner.gd" id="3_7ddre"]
-[ext_resource type="PackedScene" uid="uid://bdkcxqr7reuu0" path="res://scenes/dababy_car.tscn" id="3_8gixj"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
 [ext_resource type="PackedScene" uid="uid://b3tu8ehi8lknb" path="res://scenes/baby.tscn" id="6_6qxox"]
 [ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="6_s36qc"]
-[ext_resource type="PackedScene" uid="uid://e47frgo61rb1" path="res://scenes/cone.tscn" id="7_gthg3"]
+[ext_resource type="PackedScene" path="res://scenes/cone.tscn" id="7_gthg3"]
 [ext_resource type="Script" uid="uid://b1psxi3fghrga" path="res://score.gd" id="7_wtsjf"]
+[ext_resource type="PackedScene" uid="uid://bjc67dtno0wwe" path="res://scenes/powerpole.tscn" id="8_8gixj"]
 [ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
 [ext_resource type="Script" uid="uid://cm7fpg0a1fkp0" path="res://fps.gd" id="9_h3xc6"]
+[ext_resource type="Texture2D" uid="uid://2oghtoxq2yrd" path="res://Jeremy/wall.png" id="10_hf2sn"]
+[ext_resource type="Script" path="res://scenes/ui_controller.gd" id="11_qq5q4"]
 [ext_resource type="Script" uid="uid://b8vb2gl3yenmf" path="res://hit_baby.gd" id="13_ntc4i"]
 [ext_resource type="PackedScene" uid="uid://nwjttru5h2j2" path="res://assets/building_neon_blue (1).glb" id="14_pln1h"]
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
@@ -21,12 +23,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_pcewp"]
+[sub_resource type="Sky" id="Sky_hf2sn"]
 sky_material = SubResource("ProceduralSkyMaterial_74a4f")
 
 [sub_resource type="Environment" id="Environment_pk4ow"]
 background_mode = 1
-sky = SubResource("Sky_pcewp")
+sky = SubResource("Sky_hf2sn")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -42,6 +44,27 @@ point_count = 10
 albedo_texture = ExtResource("6_s36qc")
 uv1_scale = Vector3(0.001, 0.001, 0.001)
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq5q4"]
+albedo_texture = ExtResource("10_hf2sn")
+emission_enabled = true
+emission = Color(1, 0, 1, 1)
+emission_energy_multiplier = 10.0
+emission_operator = 1
+emission_texture = ExtResource("10_hf2sn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qq5q4"]
+font_size = 200
+font_color = Color(1, 0, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_gah1j"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qnke"]
 bg_color = Color(1, 0.186964, 0.751391, 1)
@@ -62,7 +85,7 @@ bg_color = Color(0.532287, 0.659567, 3.85046e-07, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.287294, 0.829516, -0.478921, 0, 0.5, 0.866025, 0.957843, -0.248804, 0.143647, 0, 274.249, 0)
-light_energy = 0.01
+light_energy = 0.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pk4ow")
@@ -72,22 +95,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6)
 script = ExtResource("1_j8ivh")
 lerp_speed = 10.0
 offset = Vector3(2.08165e-12, 3, 4)
-target = NodePath("../DababyCar/CarMesh")
-
-[node name="DababyCar" parent="." instance=ExtResource("3_8gixj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
+target = NodePath("../Car/CarMesh")
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
-visible = false
 
 [node name="Path3D" type="Path3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01983, -3.05176e-05, 0.863548)
 curve = SubResource("Curve3D_uhqqe")
 script = ExtResource("3_7ddre")
-powerup_scenes = [ExtResource("4_7ddre"), ExtResource("3_nd71p"), ExtResource("6_6qxox"), ExtResource("7_gthg3")]
+powerup_scenes = [ExtResource("4_7ddre"), ExtResource("3_nd71p"), ExtResource("6_6qxox"), ExtResource("7_gthg3"), ExtResource("8_8gixj")]
 player = NodePath("../Car")
-min_distance = 20.0
+min_distance = 50.0
 max_distance = 80.0
 spawn_interval = 10.0
 track_width = 15.0
@@ -113,6 +132,7 @@ transform = Transform3D(0.820161, 0.0342738, -0.571086, -0.0417522, 0.999117, 3.
 progress = 2435.6
 
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Path3D"]
+material_override = SubResource("StandardMaterial3D_qq5q4")
 use_collision = true
 polygon = PackedVector2Array(3, 0, 3, 2, 4, 2, 4, 0)
 mode = 2
@@ -128,6 +148,7 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="CSGPolygon3D3" type="CSGPolygon3D" parent="Path3D"]
+material_override = SubResource("StandardMaterial3D_qq5q4")
 use_collision = true
 polygon = PackedVector2Array(27, 0, 27, 2, 26, 2, 26, 0)
 mode = 2
@@ -142,56 +163,123 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
-[node name="speedometer" type="Label" parent="."]
+[node name="UI_controller" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("11_qq5q4")
+
+[node name="game_over" type="Control" parent="UI_controller"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 92.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="UI_controller/game_over"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0.305882)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_controller/game_over"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+alignment = 1
+
+[node name="game_over_label" type="Label" parent="UI_controller/game_over/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_qq5q4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="UI_controller/game_over/VBoxContainer"]
+layout_mode = 2
+text = "FINAL SCORE: 696969"
+label_settings = SubResource("LabelSettings_gah1j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UI_controller/game_over/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "RETURN TO MAIN MENU"
+
+[node name="in_game_UI" type="Control" parent="UI_controller"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -767.0
+offset_bottom = -432.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="speedometer" type="Label" parent="UI_controller/in_game_UI"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_top = -67.0
 offset_right = 30.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_3qnke")
 script = ExtResource("2_j8ivh")
 
-[node name="score" type="Label" parent="."]
+[node name="score" type="Label" parent="UI_controller/in_game_UI"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -40.0
-offset_top = -23.0
+offset_top = -67.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_rnaij")
 script = ExtResource("7_wtsjf")
 
-[node name="multiplier" type="Label" parent="."]
+[node name="multiplier" type="Label" parent="UI_controller/in_game_UI"]
+layout_mode = 1
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 67.0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_h3xc6")
 script = ExtResource("8_rnaij")
 
-[node name="fps" type="Label" parent="."]
+[node name="fps" type="Label" parent="UI_controller/in_game_UI"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
-offset_bottom = 23.0
+offset_bottom = 67.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_s36qc")
 script = ExtResource("9_h3xc6")
 
-[node name="hitBaby" type="Label" parent="."]
+[node name="hitBaby" type="Label" parent="UI_controller/in_game_UI"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0xbq")
@@ -589,6 +677,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.65, -5, -227.25)
 [node name="building_neon_blue (1)66" parent="Buildings" instance=ExtResource("14_pln1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.449, 0, -225.913)
 
-[editable path="DababyCar"]
 [editable path="Car"]
 [editable path="Car/CarMesh"]

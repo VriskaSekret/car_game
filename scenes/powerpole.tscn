@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjc67dtno0wwe"]
+
+[ext_resource type="PackedScene" uid="uid://8rr8de2waq42" path="res://assets/street_lamp.glb" id="1_4uywh"]
+[ext_resource type="Script" uid="uid://cth0cvwnr0gnn" path="res://scenes/cone.gd" id="1_ggu4m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ggu4m"]
+height = 2.00531
+radius = 0.587891
+
+[node name="powerpole" type="RigidBody3D"]
+collision_mask = 5
+script = ExtResource("1_ggu4m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0311, 0)
+shape = SubResource("CylinderShape3D_ggu4m")
+
+[node name="street_lamp" parent="." instance=ExtResource("1_4uywh")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.000331597, 1, 0, -1, 0.000331597, 5.49451, 8.76113, 0)
+light_color = Color(1, 1, 0.560784, 1)
+light_energy = 16.0
+spot_range = 12.7154

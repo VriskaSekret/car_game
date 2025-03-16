@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3tu8ehi8lknb"]
+[gd_scene load_steps=4 format=3 uid="uid://b3tu8ehi8lknb"]
 
-[ext_resource type="PackedScene" uid="uid://bknckakkd84o4" path="res://assets/stupid_infant.glb" id="1_k8j53"]
 [ext_resource type="Script" uid="uid://dh818cdeyh161" path="res://scenes/baby.gd" id="1_wpfv3"]
 [ext_resource type="PackedScene" uid="uid://cl7lkofme0ypo" path="res://assets/smarter_infant.glb" id="3_ruhsn"]
 
@@ -12,12 +11,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -12, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_wpfv3")
-
-[node name="stupid_infant" parent="." instance=ExtResource("1_k8j53")]
-visible = false
-
-[node name="AnimationPlayer" parent="stupid_infant" index="1"]
-autoplay = "Armature|mixamo_com|Layer0"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110443, 1.04031, -0.0622559)
@@ -83,7 +76,11 @@ bones/32/position = Vector3(-1.47521e-05, 25.967, 7.74849e-07)
 [node name="AnimationPlayer" parent="smarter_infant" index="1"]
 autoplay = "Armature|mixamo_com|Layer0"
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 4.90635, 0)
+light_color = Color(1, 0.756863, 0, 1)
+light_energy = 5.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 
-[editable path="stupid_infant"]
 [editable path="smarter_infant"]

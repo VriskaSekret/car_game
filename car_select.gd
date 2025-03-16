@@ -14,3 +14,7 @@ func _on_choose_suv_mouse_entered() -> void:
 
 func _on_choose_suv_focus_entered() -> void:
 	ButtonSelectSFX.play()
+
+
+func _on_choose_dababy_pressed() -> void:
+	pass # Replace with function body.
