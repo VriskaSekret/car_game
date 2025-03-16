@@ -11,6 +11,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	Global.score += (Global.speed_score_multiplier * 100)
-	Global.time_left += 3
+	Global.time_left += 1
 	BabySFX.play()
 	queue_free()

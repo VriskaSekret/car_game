@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=36 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://nwjttru5h2j2" path="res://assets/building_neon_blue (1).glb" id="14_pln1h"]
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
 [ext_resource type="Script" path="res://scripts/notifications.gd" id="18_ap2hy"]
+[ext_resource type="Shader" uid="uid://duwr0mmu47hje" path="res://scenes/drunk_blur_shader.gdshader" id="20_ap2hy"]
+[ext_resource type="Script" uid="uid://byg533yi8m7a4" path="res://scenes/blur_effect.gd" id="21_nlwlv"]
+[ext_resource type="Script" uid="uid://dbf8ff8hibrx4" path="res://scripts/notifications.gd" id="18_ap2hy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -82,6 +85,12 @@ bg_color = Color(0.991127, 0.370156, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0xbq"]
 bg_color = Color(0.532287, 0.659567, 3.85046e-07, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nlwlv"]
+shader = ExtResource("20_ap2hy")
+shader_parameter/blur_center = Vector2(0.5, 0.5)
+shader_parameter/blur_power = 0.01
+shader_parameter/sampling_count = 6
 
 [node name="TestScene" type="Node3D"]
 
@@ -736,6 +745,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.65, -5, -227.25)
 
 [node name="building_neon_blue (1)66" parent="Buildings" instance=ExtResource("14_pln1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.449, 0, -225.913)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nlwlv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlurShit" type="Node3D" parent="." node_paths=PackedStringArray("rect")]
+script = ExtResource("21_nlwlv")
+rect = NodePath("../ColorRect")
 
 [connection signal="pressed" from="UI_controller/game_over/VBoxContainer/Button" to="UI_controller" method="_on_button_pressed"]
 [connection signal="timeout" from="UI_controller/notifications/notifTimer" to="UI_controller/notifications" method="_on_notif_timer_timeout"]
