@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=37 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -19,10 +19,9 @@
 [ext_resource type="Script" uid="uid://b8vb2gl3yenmf" path="res://hit_baby.gd" id="13_ntc4i"]
 [ext_resource type="PackedScene" uid="uid://nwjttru5h2j2" path="res://assets/building_neon_blue (1).glb" id="14_pln1h"]
 [ext_resource type="PackedScene" uid="uid://cdff1y6abwnbv" path="res://assets/building_neon_purple (1).glb" id="15_8gixj"]
-[ext_resource type="Script" path="res://scripts/notifications.gd" id="18_ap2hy"]
-[ext_resource type="Shader" uid="uid://duwr0mmu47hje" path="res://scenes/drunk_blur_shader.gdshader" id="20_ap2hy"]
-[ext_resource type="Script" uid="uid://byg533yi8m7a4" path="res://scenes/blur_effect.gd" id="21_nlwlv"]
 [ext_resource type="Script" uid="uid://dbf8ff8hibrx4" path="res://scripts/notifications.gd" id="18_ap2hy"]
+[ext_resource type="Shader" path="res://scenes/drunk_blur_shader.gdshader" id="20_ap2hy"]
+[ext_resource type="Script" path="res://scenes/blur_effect.gd" id="21_nlwlv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_74a4f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -194,6 +193,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("11_qq5q4")
 
 [node name="game_over" type="Control" parent="UI_controller"]
@@ -248,6 +248,7 @@ offset_right = -767.0
 offset_bottom = -432.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="speedometer" type="Label" parent="UI_controller/in_game_UI"]
 layout_mode = 1
@@ -313,6 +314,7 @@ script = ExtResource("13_ntc4i")
 anchors_preset = 0
 offset_right = 1921.0
 offset_bottom = 1080.0
+mouse_filter = 2
 script = ExtResource("18_ap2hy")
 
 [node name="addScore" type="Label" parent="UI_controller/notifications"]
@@ -753,6 +755,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BlurShit" type="Node3D" parent="." node_paths=PackedStringArray("rect")]
 script = ExtResource("21_nlwlv")
