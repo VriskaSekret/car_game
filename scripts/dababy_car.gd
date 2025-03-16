@@ -12,28 +12,18 @@ var speed_input = 0
 var turn_input = 0
 
 @onready var car_mesh = $CarMesh
-@onready var body_mesh = $CarMesh/suv2
+@onready var body_mesh = $CarMesh/dababycar
 @onready var ground_ray = $CarMesh/RayCast3D
-@onready var right_wheel = $CarMesh/suv2/wheel_frontRight
-@onready var left_wheel = $CarMesh/suv2/wheel_frontLeft
-
-@onready var drift_player: AudioStreamPlayer = $Drift
-@onready var engine_player: AudioStreamPlayer = $Engine
 
 
 
 
-func _ready():
-	engine_player.playing = true
 
+#func _ready():
+#	ground_ray.add_exception(self)
 	
 func _physics_process(delta):
 	car_mesh.position = position + sphere_offset
-	if position.y < -10:
-		#
-		# IMPLEMENT GAME OVER
-		#
-		Global.is_dead = true
 	if ground_ray.is_colliding():
 		apply_central_force(-car_mesh.global_transform.basis.z * speed_input)
 	
@@ -41,7 +31,6 @@ func _process(delta):
 	acceleration = 25.0 * (Global.speed_score_multiplier)
 	if not ground_ray.is_colliding() or Global.is_dead:
 		return
-	engine_player.pitch_scale = ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
 	if Input.is_key_pressed(KEY_SPACE):
 		turn_speed = 6.0
 		drift_direction_multiplier = -1
@@ -49,27 +38,20 @@ func _process(delta):
 		turn_speed = 3.0
 		drift_direction_multiplier = 1
 	if drift_direction_multiplier == -1 and Input.get_axis("steer_right", "steer_left") != 0:
-		drift_player.play()
-		acceleration += acceleration * 0.2
-	else:
-		drift_player.stop()
+			acceleration += acceleration * 0.2
 	speed_input = Input.get_axis("brake", "accelerate") * acceleration
 	if speed_input > 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)
-		engine_player.volume_db = 5 * ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
 	elif speed_input < 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * -deg_to_rad(steering)
-		engine_player.volume_db = 5 * ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
-	right_wheel.rotation.y = turn_input * drift_direction_multiplier
-	left_wheel.rotation.y = turn_input * drift_direction_multiplier
 
 	
 	if linear_velocity.length() > turn_stop_limit:
 		var new_basis = car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, turn_input)
 		car_mesh.global_transform.basis = car_mesh.global_transform.basis.slerp(new_basis, turn_speed * delta)
 		car_mesh.global_transform = car_mesh.global_transform.orthonormalized()
-		var t = -turn_input * linear_velocity.length() / body_tilt
-		body_mesh.rotation.z = lerp(body_mesh.rotation.z, t, 5.0 * delta)
+		#var t = -turn_input * linear_velocity.length() / body_tilt
+		#body_mesh.rotation.z = lerp(body_mesh.rotation.z, t, 5.0 * delta)
 		if ground_ray.is_colliding():
 			var n = ground_ray.get_collision_normal()
 			var xform = align_with_y(car_mesh.global_transform, n)

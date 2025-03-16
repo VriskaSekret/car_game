@@ -4,6 +4,19 @@ extends Camera3D
 @export var offset = Vector3.ZERO
 @export var target : Node
 
+@onready var dababy_car_mesh: Node3D = $"../DababyCar/CarMesh"
+@onready var car_mesh: Node3D = $"../Car/CarMesh"
+
+func _ready() -> void:
+	if !target:
+		target = find_player_car_mesh()
+	target.get_parent().visible = true
+
+func find_player_car_mesh():
+	if Global.car == 0:
+		return car_mesh
+	elif Global.car == 1:
+		return dababy_car_mesh
 
 func _physics_process(delta):
 	if !target:

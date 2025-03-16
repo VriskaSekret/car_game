@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbl4bno5e48ka"]
+[gd_scene load_steps=10 format=3 uid="uid://dbl4bno5e48ka"]
 
 [ext_resource type="Script" uid="uid://by722cu5iruxc" path="res://scripts/car.gd" id="1_0cfhi"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="1_rqohb"]
 [ext_resource type="PackedScene" uid="uid://b7to78d8cuybh" path="res://assets/GLTF format/suv.glb" id="2_wv6cm"]
+[ext_resource type="AudioStream" uid="uid://cu3gkxkiw0upb" path="res://assets/drift.mp3" id="4_3mrxu"]
+[ext_resource type="AudioStream" uid="uid://j267nuawgj14" path="res://assets/better_engine.mp3" id="5_cp117"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dtpcx"]
 bounce = 0.1
@@ -10,14 +12,14 @@ bounce = 0.1
 [sub_resource type="SphereShape3D" id="SphereShape3D_ywja5"]
 radius = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vviip"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50v30"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.643137)
 albedo_texture = ExtResource("1_rqohb")
 uv1_scale = Vector3(6, 3, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_00jmq"]
-material = SubResource("StandardMaterial3D_vviip")
+material = SubResource("StandardMaterial3D_50v30")
 radius = 1.0
 height = 2.0
 
@@ -48,5 +50,17 @@ spot_angle = 60.0
 
 [node name="car_backlight" type="SpotLight3D" parent="CarMesh"]
 transform = Transform3D(1, 0, 0, 0, 0.823424, 0.567427, 0, -0.567427, 0.823424, 0, 1.97082, 2.11248)
+
+[node name="Drift" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3mrxu")
+volume_db = -4.0
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="Engine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cp117")
+volume_db = 4.0
+autoplay = true
+bus = &"SFX"
 
 [editable path="CarMesh"]

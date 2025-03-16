@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=33 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
 [ext_resource type="Script" uid="uid://uu65it10jh0e" path="res://scenes/powerup_spawner.gd" id="3_7ddre"]
+[ext_resource type="PackedScene" uid="uid://bdkcxqr7reuu0" path="res://scenes/dababy_car.tscn" id="3_8gixj"]
 [ext_resource type="PackedScene" uid="uid://dbl4bno5e48ka" path="res://scenes/car.tscn" id="3_jaglt"]
 [ext_resource type="PackedScene" uid="uid://bacj14uc7wbkp" path="res://scenes/tree.tscn" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
@@ -90,15 +91,19 @@ light_energy = 0.1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pk4ow")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6)
 script = ExtResource("1_j8ivh")
 lerp_speed = 10.0
 offset = Vector3(2.08165e-12, 3, 4)
-target = NodePath("../Car/CarMesh")
+
+[node name="DababyCar" parent="." instance=ExtResource("3_8gixj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
+visible = false
 
 [node name="Car" parent="." instance=ExtResource("3_jaglt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8888, 1.70521, -240.834)
+visible = false
 
 [node name="Path3D" type="Path3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01983, -3.05176e-05, 0.863548)
@@ -678,5 +683,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.65, -5, -227.25)
 [node name="building_neon_blue (1)66" parent="Buildings" instance=ExtResource("14_pln1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.449, 0, -225.913)
 
+[connection signal="pressed" from="UI_controller/game_over/VBoxContainer/Button" to="UI_controller" method="_on_button_pressed"]
+
+[editable path="DababyCar"]
 [editable path="Car"]
 [editable path="Car/CarMesh"]
