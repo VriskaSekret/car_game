@@ -9,6 +9,6 @@ func _on_body_entered(body: Node3D) -> void:
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	if (position.distance_to(player.position) > 100):
+	if (position.distance_to(player.position) > 160):
 		queue_free()
 	rotate_y(delta*1)

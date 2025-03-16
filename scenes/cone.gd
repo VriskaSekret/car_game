@@ -6,5 +6,5 @@ func _ready() -> void:
 	rotate_y(randi_range(0,360))
 
 func _physics_process(delta: float) -> void:
-	if (position.distance_to(player.position) > 100):
+	if (position.distance_to(player.position) > 160):
 		queue_free()
