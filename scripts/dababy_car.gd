@@ -24,6 +24,11 @@ var turn_input = 0
 	
 func _physics_process(delta):
 	car_mesh.position = position + sphere_offset
+	if position.y < -10:
+		#
+		# IMPLEMENT GAME OVER
+		#
+		Global.is_dead = true
 	if ground_ray.is_colliding():
 		apply_central_force(-car_mesh.global_transform.basis.z * speed_input)
 	

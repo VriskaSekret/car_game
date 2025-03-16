@@ -14,8 +14,10 @@ func _ready() -> void:
 
 func find_player_car_mesh():
 	if Global.car == 0:
+		dababy_car_mesh.get_parent().queue_free()
 		return car_mesh
 	elif Global.car == 1:
+		car_mesh.get_parent().queue_free()
 		return dababy_car_mesh
 
 func _physics_process(delta):
