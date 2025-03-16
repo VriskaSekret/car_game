@@ -54,7 +54,7 @@ func _process(delta):
 		drift_player.stop()
 		cpu_particles_3d.emitting = false
 	speed_input = Input.get_axis("brake", "accelerate") * acceleration
-	if speed_input > 0:
+	if linear_velocity.length() > 2:
 		turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)
 		engine_player.volume_db = 5 * ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
 	elif speed_input < 0:

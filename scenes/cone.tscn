@@ -8,6 +8,7 @@ height = 0.583557
 radius = 0.242676
 
 [node name="cone" type="RigidBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_mask = 5
 mass = 0.1
 script = ExtResource("1_1pvhk")

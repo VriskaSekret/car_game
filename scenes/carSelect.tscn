@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://20mkd0524g5g"]
+[gd_scene load_steps=7 format=3 uid="uid://20mkd0524g5g"]
 
 [ext_resource type="Texture2D" uid="uid://ckxc2ecjahol1" path="res://assets/carImage.png" id="1_0gg5u"]
 [ext_resource type="Script" uid="uid://0a5tpaqmpltk" path="res://car_select.gd" id="1_gnvab"]
 [ext_resource type="Texture2D" uid="uid://b8cp0i52c0sag" path="res://assets/image.png" id="2_vdrxp"]
+[ext_resource type="Texture2D" uid="uid://crlygw01n5lck" path="res://assets/dusty_ahh_j.jpg" id="4_tcix0"]
+[ext_resource type="Texture2D" uid="uid://brco0sqomr12a" path="res://assets/baby_pic.png" id="5_vr1as"]
+[ext_resource type="Texture2D" uid="uid://n4hkrjfv7knu" path="res://assets/beer_pic.png" id="6_p0rtw"]
 
 [node name="CarSelect" type="Control"]
 layout_mode = 3
@@ -11,51 +14,185 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_gnvab")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -779.5
-offset_top = -299.5
-offset_right = 779.5
-offset_bottom = 299.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
 
-[node name="dababyImage" type="TextureRect" parent="HSplitContainer/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="HSplitContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_vdrxp")
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 10
 
-[node name="chooseDababy" type="Button" parent="HSplitContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
-text = "Dababy"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "SELECT A CAR"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 10
+
+[node name="chooseSUV" type="Button" parent="HSplitContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("1_0gg5u")
+
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 10
+
+[node name="chooseDababy" type="Button" parent="HSplitContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("2_vdrxp")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 0
+size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="suvImage" type="TextureRect" parent="HSplitContainer/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="HSplitContainer/VBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("1_0gg5u")
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
 
-[node name="chooseSUV" type="Button" parent="HSplitContainer/VBoxContainer2"]
+[node name="Controls" type="HBoxContainer" parent="HSplitContainer/VBoxContainer2/MarginContainer"]
 layout_mode = 2
-text = "SUV"
+size_flags_horizontal = 5
+size_flags_vertical = 3
+mouse_filter = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HSplitContainer"]
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/VBoxContainer2/MarginContainer/Controls"]
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_tcix0")
+stretch_mode = 4
 
-[connection signal="focus_entered" from="HSplitContainer/VBoxContainer/chooseDababy" to="." method="_on_choose_dababy_focus_entered"]
-[connection signal="mouse_entered" from="HSplitContainer/VBoxContainer/chooseDababy" to="." method="_on_choose_dababy_mouse_entered"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer/chooseDababy" to="." method="_on_choose_dababy_pressed"]
-[connection signal="pressed" from="HSplitContainer/VBoxContainer2/chooseSUV" to="." method="_on_choose_suv_pressed"]
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer2/MarginContainer/Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "W to accelerate
+A/D to turn
+S to reverse and brake
+SPACE to drift"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="Baby" type="HBoxContainer" parent="HSplitContainer/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer2/MarginContainer2/Baby"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "HIT BABIES TO GET POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/VBoxContainer2/MarginContainer2/Baby"]
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 2
+texture = ExtResource("5_vr1as")
+stretch_mode = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="HSplitContainer/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="Beer" type="HBoxContainer" parent="HSplitContainer/VBoxContainer2/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/VBoxContainer2/MarginContainer3/Beer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_p0rtw")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer2/MarginContainer3/Beer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "DRINK BEER TO GO FASTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.505882, 0.0862745, 0, 1)
+
+[connection signal="focus_entered" from="HSplitContainer/VBoxContainer/MarginContainer2/chooseSUV" to="." method="_on_choose_suv_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/VBoxContainer/MarginContainer2/chooseSUV" to="." method="_on_choose_suv_mouse_entered"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/MarginContainer2/chooseSUV" to="." method="_on_choose_suv_pressed"]
+[connection signal="focus_entered" from="HSplitContainer/VBoxContainer/MarginContainer/chooseDababy" to="." method="_on_choose_dababy_focus_entered"]
+[connection signal="mouse_entered" from="HSplitContainer/VBoxContainer/MarginContainer/chooseDababy" to="." method="_on_choose_dababy_mouse_entered"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/MarginContainer/chooseDababy" to="." method="_on_choose_dababy_pressed"]

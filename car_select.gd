@@ -1,7 +1,6 @@
 extends Control
-
-@onready var choose_suv: Button = $HSplitContainer/VBoxContainer2/chooseSUV
-@onready var choose_dababy: Button = $HSplitContainer/VBoxContainer/chooseDababy
+@onready var choose_suv: Button = $HSplitContainer/VBoxContainer/MarginContainer2/chooseSUV
+@onready var choose_dababy: Button = $HSplitContainer/VBoxContainer/MarginContainer/chooseDababy
 
 func _ready() -> void:
 	choose_suv.grab_focus()
