@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5eqimuylhd0" path="res://scenes/beer.tscn" id="4_7ddre"]
 [ext_resource type="PackedScene" uid="uid://b3tu8ehi8lknb" path="res://scenes/baby.tscn" id="6_6qxox"]
 [ext_resource type="Texture2D" uid="uid://c85tnhaw1bd36" path="res://Jeremy/black-plain-concrete-textured.jpg" id="6_s36qc"]
-[ext_resource type="PackedScene" path="res://scenes/cone.tscn" id="7_gthg3"]
+[ext_resource type="PackedScene" uid="uid://e47frgo61rb1" path="res://scenes/cone.tscn" id="7_gthg3"]
 [ext_resource type="Script" uid="uid://b1psxi3fghrga" path="res://score.gd" id="7_wtsjf"]
 [ext_resource type="PackedScene" uid="uid://bjc67dtno0wwe" path="res://scenes/powerpole.tscn" id="8_8gixj"]
 [ext_resource type="Script" uid="uid://c5i2ggcp6matc" path="res://multiplier.gd" id="8_rnaij"]
@@ -777,6 +777,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.65, -5, -227.25)
 
 [node name="building_neon_blue (1)66" parent="Buildings" instance=ExtResource("14_pln1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 206.449, 0, -225.913)
+
+[connection signal="pressed" from="UI_controller/game_over/VBoxContainer/Button" to="UI_controller" method="_on_button_pressed"]
 
 [editable path="Car"]
 [editable path="Car/CarMesh"]
