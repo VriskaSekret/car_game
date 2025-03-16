@@ -1,6 +1,7 @@
 extends Label
-@onready var car: RigidBody3D = $"../Car"
+@onready var car: RigidBody3D = $"../../../Car"
 @onready var speedometer: Label = $"."
+
 
 
 func _process(delta):
