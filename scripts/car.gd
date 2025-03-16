@@ -17,12 +17,15 @@ var turn_input = 0
 @onready var right_wheel = $CarMesh/suv2/wheel_frontRight
 @onready var left_wheel = $CarMesh/suv2/wheel_frontLeft
 
+@onready var drift_player: AudioStreamPlayer = $Drift
+@onready var engine_player: AudioStreamPlayer = $Engine
 
 
 
 
-#func _ready():
-#	ground_ray.add_exception(self)
+func _ready():
+	engine_player.playing = true
+
 	
 func _physics_process(delta):
 	car_mesh.position = position + sphere_offset
@@ -38,6 +41,7 @@ func _process(delta):
 	acceleration = 25.0 * (Global.speed_score_multiplier)
 	if not ground_ray.is_colliding() or Global.is_dead:
 		return
+	engine_player.pitch_scale = ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
 	if Input.is_key_pressed(KEY_SPACE):
 		turn_speed = 6.0
 		drift_direction_multiplier = -1
@@ -49,8 +53,10 @@ func _process(delta):
 	speed_input = Input.get_axis("brake", "accelerate") * acceleration
 	if speed_input > 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)
+		engine_player.volume_db = 5 * ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
 	elif speed_input < 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * -deg_to_rad(steering)
+		engine_player.volume_db = 5 * ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
 	right_wheel.rotation.y = turn_input * drift_direction_multiplier
 	left_wheel.rotation.y = turn_input * drift_direction_multiplier
 
