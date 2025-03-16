@@ -6,13 +6,12 @@ extends Control
 func _ready() -> void:
 	BGM.play()
 	start_button.grab_focus()
+	Global.reset_global_vars()
 
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/carSelect.tscn")
 	ButtonSFX.play()
-	Global.score = 0
-	Global.speed_score_multiplier = 1
-	Global.is_dead = false
+	Global.reset_global_vars()
 
 
 func _on_start_button_mouse_entered() -> void:
