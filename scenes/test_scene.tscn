@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=32 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -55,6 +55,16 @@ emission_texture = ExtResource("10_hf2sn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_qq5q4"]
 font_size = 200
+font_color = Color(1, 0, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_gah1j"]
+font_size = 100
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qnke"]
 bg_color = Color(1, 0.186964, 0.751391, 1)
@@ -167,6 +177,7 @@ size_flags_vertical = 3
 script = ExtResource("11_qq5q4")
 
 [node name="game_over" type="Control" parent="UI_controller"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 92.0
@@ -190,6 +201,20 @@ text = "GAME OVER"
 label_settings = SubResource("LabelSettings_qq5q4")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="score" type="Label" parent="UI_controller/game_over/VBoxContainer"]
+layout_mode = 2
+text = "FINAL SCORE: 696969"
+label_settings = SubResource("LabelSettings_gah1j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UI_controller/game_over/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "RETURN TO MAIN MENU"
 
 [node name="in_game_UI" type="Control" parent="UI_controller"]
 layout_mode = 3
