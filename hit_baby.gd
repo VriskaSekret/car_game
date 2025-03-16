@@ -5,3 +5,5 @@ extends Label
 func _process(delta):
 	hit_baby.text = " Hit baby before: %s " % snapped(Global.time_left, 0.1)
 	Global.time_left -= delta
+	if Global.time_left <= 0:
+		Global.is_dead = true
