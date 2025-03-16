@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://be1mi7mimuwfx"]
+[gd_scene load_steps=31 format=3 uid="uid://be1mi7mimuwfx"]
 
 [ext_resource type="Script" uid="uid://ivl5u3ahogss" path="res://scripts/Camera3D.gd" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bi2b1qr07pq4p" path="res://speedometer.gd" id="2_j8ivh"]
@@ -52,6 +52,9 @@ emission = Color(1, 0, 1, 1)
 emission_energy_multiplier = 10.0
 emission_operator = 1
 emission_texture = ExtResource("10_hf2sn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qq5q4"]
+font_size = 200
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qnke"]
 bg_color = Color(1, 0.186964, 0.751391, 1)
@@ -152,32 +155,41 @@ path_joined = false
 
 [node name="UI_controller" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("11_qq5q4")
 
 [node name="game_over" type="Control" parent="UI_controller"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_right = 92.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="UI_controller/game_over"]
-layout_mode = 0
-offset_left = -13.0
-offset_top = -10.0
-offset_right = 1163.0
-offset_bottom = 663.0
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(1, 1, 1, 0.305882)
 
-[node name="Label" type="Label" parent="UI_controller/game_over"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI_controller/game_over"]
 layout_mode = 0
-offset_left = 480.0
-offset_top = 238.0
-offset_right = 520.0
-offset_bottom = 261.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+alignment = 1
+
+[node name="game_over_label" type="Label" parent="UI_controller/game_over/VBoxContainer"]
+layout_mode = 2
 text = "GAME OVER"
+label_settings = SubResource("LabelSettings_qq5q4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="in_game_UI" type="Control" parent="UI_controller"]
 layout_mode = 3
