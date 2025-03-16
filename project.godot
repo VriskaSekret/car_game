@@ -20,6 +20,7 @@ Global="*res://scripts/global.gd"
 ButtonSFX="*res://scenes/SoundGlobals/button_sfx.tscn"
 ButtonSelectSFX="*res://scenes/SoundGlobals/button_select_sfx.tscn"
 BGM="*res://scenes/SoundGlobals/bgm.tscn"
+BeerSFX="*res://scenes/SoundGlobals/beer_sfx.tscn"
 
 [display]
 
