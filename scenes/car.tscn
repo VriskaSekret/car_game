@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbl4bno5e48ka"]
+[gd_scene load_steps=11 format=3 uid="uid://dbl4bno5e48ka"]
 
 [ext_resource type="Script" uid="uid://by722cu5iruxc" path="res://scripts/car.gd" id="1_0cfhi"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="1_rqohb"]
@@ -23,6 +23,9 @@ material = SubResource("StandardMaterial3D_50v30")
 radius = 1.0
 height = 2.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_3mrxu"]
+size = Vector3(0.25, 0.25, 0.25)
+
 [node name="Car" type="RigidBody3D" groups=["Player"]]
 collision_layer = 6
 physics_material_override = SubResource("PhysicsMaterial_dtpcx")
@@ -40,6 +43,20 @@ mesh = SubResource("SphereMesh_00jmq")
 [node name="CarMesh" parent="." instance=ExtResource("2_wv6cm")]
 top_level = true
 
+[node name="CPUParticles3D" type="CPUParticles3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00563455, 0.180952, 0.685945)
+emitting = false
+amount = 120
+randomness = 1.0
+mesh = SubResource("BoxMesh_3mrxu")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+
 [node name="RayCast3D" type="RayCast3D" parent="CarMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
 
@@ -55,12 +72,10 @@ transform = Transform3D(1, 0, 0, 0, 0.823424, 0.567427, 0, -0.567427, 0.823424, 
 stream = ExtResource("4_3mrxu")
 volume_db = -4.0
 pitch_scale = 1.5
-bus = &"SFX"
 
 [node name="Engine" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cp117")
 volume_db = 4.0
 autoplay = true
-bus = &"SFX"
 
 [editable path="CarMesh"]

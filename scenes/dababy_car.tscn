@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdkcxqr7reuu0"]
+[gd_scene load_steps=9 format=3 uid="uid://desnejrdln5t7"]
 
 [ext_resource type="Script" uid="uid://bew6s74wjy4eb" path="res://scripts/dababy_car.gd" id="1_6rcwd"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="2_1pyw6"]
@@ -20,6 +20,9 @@ uv1_scale = Vector3(6, 3, 1)
 material = SubResource("StandardMaterial3D_vviip")
 radius = 1.0
 height = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_6rcwd"]
+size = Vector3(0.25, 0.25, 0.25)
 
 [node name="DababyCar" type="RigidBody3D" groups=["Player"]]
 collision_layer = 6
@@ -51,3 +54,17 @@ spot_angle = 60.0
 
 [node name="car_backlight" type="SpotLight3D" parent="CarMesh"]
 transform = Transform3D(1, 0, 0, 0, 0.823424, 0.567427, 0, -0.567427, 0.823424, 0, 1.97082, 2.11248)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="CarMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00563455, 0.180952, 0.685945)
+emitting = false
+amount = 120
+randomness = 1.0
+mesh = SubResource("BoxMesh_6rcwd")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0

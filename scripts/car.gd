@@ -20,6 +20,8 @@ var turn_input = 0
 @onready var drift_player: AudioStreamPlayer = $Drift
 @onready var engine_player: AudioStreamPlayer = $Engine
 
+@onready var cpu_particles_3d: CPUParticles3D = $CarMesh/CPUParticles3D
+
 
 
 
@@ -50,9 +52,11 @@ func _process(delta):
 		drift_direction_multiplier = 1
 	if drift_direction_multiplier == -1 and Input.get_axis("steer_right", "steer_left") != 0:
 		drift_player.play()
+		cpu_particles_3d.emitting = true
 		acceleration += acceleration * 0.2
 	else:
 		drift_player.stop()
+		cpu_particles_3d.emitting = false
 	speed_input = Input.get_axis("brake", "accelerate") * acceleration
 	if speed_input > 0:
 		turn_input = Input.get_axis("steer_right", "steer_left") * deg_to_rad(steering)

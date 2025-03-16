@@ -15,6 +15,7 @@ var turn_input = 0
 @onready var body_mesh = $CarMesh/dababycar
 @onready var ground_ray = $CarMesh/RayCast3D
 
+@onready var cpu_particles_3d: CPUParticles3D = $CarMesh/CPUParticles3D
 
 
 
