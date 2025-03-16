@@ -13,6 +13,12 @@ func reset_global_vars():
 	time_left = 30.0
 	car = 0
 
+func reset_but_not_car():
+	speed_score_multiplier = 1.0
+	is_dead = false
+	score = 0
+	time_left = 30.0
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		reset_global_vars()

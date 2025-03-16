@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://desnejrdln5t7"]
+[gd_scene load_steps=11 format=3 uid="uid://bdkcxqr7reuu0"]
 
 [ext_resource type="Script" uid="uid://bew6s74wjy4eb" path="res://scripts/dababy_car.gd" id="1_6rcwd"]
 [ext_resource type="Texture2D" uid="uid://c1f70054pofjm" path="res://assets/texture_09.png" id="2_1pyw6"]
