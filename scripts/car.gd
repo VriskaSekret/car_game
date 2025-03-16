@@ -30,7 +30,7 @@ func _physics_process(delta):
 		#
 		# IMPLEMENT GAME OVER
 		#
-		queue_free()
+		Global.is_dead = true
 	if ground_ray.is_colliding():
 		apply_central_force(-car_mesh.global_transform.basis.z * speed_input)
 	
