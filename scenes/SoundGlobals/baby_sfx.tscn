@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8lba8adtaxs5"]
+
+[ext_resource type="AudioStream" uid="uid://dsc5xwhah87an" path="res://assets/Sounds/baby_hit.mp3" id="1_u0ao8"]
+
+[node name="BabySFX" type="AudioStreamPlayer"]
+stream = ExtResource("1_u0ao8")
+volume_db = -6.0
+bus = &"SFX"
