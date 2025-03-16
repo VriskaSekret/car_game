@@ -40,7 +40,7 @@ func _process(delta):
 	if not ground_ray.is_colliding() or Global.is_dead:
 		return
 	engine_player.pitch_scale = ((abs(Input.get_axis("brake", "accelerate"))/2) + 1)
-	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_action_pressed("handbrake"):
 		turn_speed = 6.0
 		drift_direction_multiplier = -1
 	else:
