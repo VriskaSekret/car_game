@@ -53,7 +53,6 @@ uv1_triplanar = true
 albedo_texture = ExtResource("10_hf2sn")
 emission_enabled = true
 emission = Color(1, 0, 1, 1)
-emission_energy_multiplier = 10.0
 emission_operator = 1
 emission_texture = ExtResource("10_hf2sn")
 
